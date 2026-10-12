@@ -8,20 +8,27 @@ Production-ready personal brand and commercial partnerships website for **Sedo M
 
 ```text
 sedo-site/
-├── index.html            # Semantic HTML5, 6-step collab form, phone video panel, SEO meta
+├── index.html            # Semantic HTML5, 6-step collab form, phone video panel, SEO & icon meta
 ├── styles.css            # Custom editorial styling, #0A0A0A / #B10F1A / #F3EDE6 palette
 ├── script.js             # Status config, 4-language i18n, motion engine, form validator
+├── manifest.json         # Web App Manifest for mobile install and standalone display
 ├── package.json          # Minimal package manifest ("private": true, no dependencies)
 ├── README.md             # Complete documentation and deployment guide
 └── assets/
+    ├── logo/
+    │   ├── sedo-logo.png           # Master Sedo logo mark (ring + "S" + "SEDO MARTIAL ART")
+    │   └── imako-logo.png          # Builder credit logo (automatic text fallback)
+    ├── icons/
+    │   ├── favicon.ico             # Desktop browser tab icon (16x16, 32x32, 48x48)
+    │   ├── favicon-32.png          # 32x32 PNG browser tab icon
+    │   ├── apple-touch-icon.png    # 180x180 PNG iPhone home screen icon
+    │   └── icon-512.png            # 512x512 PNG Android / install icon
     ├── images/
-    │   ├── sedo-poster.webp        # Hero carousel slide 1, combat poster, logo mark
-    │   ├── sedo-portrait.webp      # Hero slide 2 & 3, About portrait, gallery
+    │   ├── sedo-poster.webp        # Hero carousel slide 1, combat poster in gallery
+    │   ├── sedo-portrait.webp      # Hero slides 2 & 3, About portrait, gallery
     │   └── sedo-tiktok-profile.jpg # (Reference only — never displayed on site)
     ├── video/
     │   └── sedo-highlight.mp4      # Full-height 9:16 vertical video reel
-    ├── logo/
-    │   └── imako-logo.png          # Builder credit logo (automatic text fallback)
     ├── press/
     │   └── sedo-press-kit.pdf      # Downloadable press kit (with coming-soon note)
     └── partners/                   # Brand partner logos for infinite marquee
@@ -29,7 +36,7 @@ sedo-site/
 
 ---
 
-## 🎯 Configurable Status Badge (Idea 12)
+## 🎯 Configurable Status Badge
 
 At the top of [`script.js`](file:///c:/Users/ps/Desktop/Sedo%20martialart/script.js#L1-L25), you can easily modify Sedo's real-time career status:
 
@@ -49,20 +56,20 @@ const STATUS_CONFIG = {
 2. **Typography**: **Bodoni Moda** for display headlines; **Jost** for body and interface; **Noto Sans Ethiopic** and **Noto Sans Arabic** for native multi-language rendering.
 3. **Geometry**: Zero border-radius across all cards and sections, with fully rounded pill elements reserved exclusively for tags, badges, and TikTok buttons.
 4. **Interactive Motion & Transitions**:
-   - **Loading Intro**: Letter-by-letter reveal of `SEDO`, red sweep bar, and curtain lift (`sessionStorage` cached for first visits only).
-   - **Custom Red Cursor & Magnetic Buttons (Idea 4)**: Smooth cursor tracking and interactive pull on CTAs.
-   - **Split-Letter Headings (Idea 6) & Red Clip-Path Wipes (Idea 7)**: Progressive viewport entry transitions.
-   - **Animated Metric Counters (Idea 8)**: Counting up to 2.4M followers, 61.2M likes, and active campaigns.
-   - **Interactive Career Timeline (Idea 9)**: Dynamic red progress line tracking scroll position across milestone years.
-   - **Fight Card Services (Idea 10)**: Full-width rows with hover red sweep lines.
-   - **Full-Height 9:16 TikTok Video Panel (Idea 11)**: Autoplays in view; unmutes on desktop hover and tap-to-unmute on mobile.
-   - **Parallax Portrait (Idea 13)**: Subtle depth shift against the red offset frame on scroll.
-   - **Brand Partner Marquee (Idea 14)**: Infinite scrolling strip with automatic graceful fallback if logos are pending.
-   - **Testimonials Slider (Idea 19)**: Client quotes slider formatted strictly with placeholders.
+   - **Loading Intro**: Displays the Sedo logo mark, followed by a letter-by-letter reveal of `Sedo`, signature red sweep bar, and curtain lift (`sessionStorage` cached for first visits only).
+   - **Custom Red Cursor & Magnetic Buttons**: Smooth cursor tracking and interactive pull on CTAs.
+   - **Split-Letter Headings & Red Clip-Path Wipes**: Progressive viewport entry transitions.
+   - **Animated Metric Counters**: Counting up to 2.4M followers, 61.2M likes, and active campaigns.
+   - **Interactive Career Timeline**: Dynamic red progress line tracking scroll position across milestone years.
+   - **Fight Card Services**: Full-width rows with hover red sweep lines.
+   - **Full-Height 9:16 TikTok Video Panel**: Autoplays in view; unmutes on desktop hover and tap-to-unmute on mobile.
+   - **Parallax Portrait**: Subtle depth shift against the red offset frame on scroll.
+   - **Brand Partner Marquee**: Infinite scrolling strip with automatic graceful fallback if logos are pending.
+   - **Testimonials Slider**: Client quotes slider formatted strictly with placeholders.
 
 ---
 
-## 💼 6-Step Brand Collaboration Form (Ideas 15 & 16)
+## 💼 6-Step Brand Collaboration Form
 
 A high-converting 6-step partnership workflow:
 - **Step 1 (About you)**: Name, email, phone (Ethiopian local + international validation), preferred contact channel.
