@@ -889,7 +889,7 @@ button {
 
 /* Progressive Enhancement when JS is active and element is not yet in view */
 html.js-ready .clip-wipe-section:not(.is-revealed) {
-  clip-path: inset(100% 0 0 0);
+  clip-path: inset(0 0 100% 0);
 }
 
 html.js-ready .clip-wipe-section.is-revealed {
