@@ -565,10 +565,17 @@ const STATUS_CONFIG = {
     const introEl = document.getElementById('intro-screen');
     if (!introEl) return;
 
+    // Hard safety net: guarantee overlay is completely gone after 3 seconds regardless of animation state
+    const safetyTimer = setTimeout(() => {
+      introEl.classList.add('is-lifted');
+      introEl.style.display = 'none';
+    }, 3000);
+
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const hasSeen = safeGet(sessionStorage, 'sedo_intro_lifted');
 
     if (prefersReducedMotion || hasSeen === 'true') {
+      clearTimeout(safetyTimer);
       introEl.style.display = 'none';
       return;
     }
@@ -577,6 +584,7 @@ const STATUS_CONFIG = {
       introEl.classList.add('is-lifted');
       safeSet(sessionStorage, 'sedo_intro_lifted', 'true');
       setTimeout(() => {
+        clearTimeout(safetyTimer);
         introEl.style.display = 'none';
       }, 900);
     }, 1600);
@@ -807,6 +815,7 @@ const STATUS_CONFIG = {
     const headings = document.querySelectorAll('.split-letter-heading');
     headings.forEach(heading => {
       const text = heading.textContent.trim();
+      if (!text) return;
       heading.innerHTML = '';
       text.split('').forEach((ch, idx) => {
         const span = document.createElement('span');
@@ -818,6 +827,13 @@ const STATUS_CONFIG = {
     });
 
     const clipSections = document.querySelectorAll('.clip-wipe-section');
+
+    // If IntersectionObserver is not supported, reveal everything immediately
+    if (!('IntersectionObserver' in window)) {
+      clipSections.forEach(sec => sec.classList.add('is-revealed'));
+      return;
+    }
+
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -826,11 +842,24 @@ const STATUS_CONFIG = {
         }
       });
     }, {
-      threshold: 0.08,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.05,
+      rootMargin: '50px 0px 0px 0px'
     });
 
-    clipSections.forEach(sec => observer.observe(sec));
+    clipSections.forEach(sec => {
+      // If already in viewport on page load, reveal immediately
+      const rect = sec.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        sec.classList.add('is-revealed');
+      } else {
+        observer.observe(sec);
+      }
+    });
+
+    // Priority 1 Safety Net: after 2 seconds, remove any remaining hidden state so nothing stays blank
+    setTimeout(() => {
+      clipSections.forEach(sec => sec.classList.add('is-revealed'));
+    }, 2000);
   }
 
   // ==========================================================================
@@ -998,10 +1027,18 @@ const STATUS_CONFIG = {
     const mobileSoundBtn = document.getElementById('mobile-unmute-btn');
     const iconMuted = document.getElementById('sound-icon-muted');
     const iconUnmuted = document.getElementById('sound-icon-unmuted');
+    const fallbackImg = document.getElementById('video-fallback-img');
 
     if (!video || !panel) return;
 
     let srcSet = false;
+
+    // Fallback handler if video fails to load
+    video.addEventListener('error', () => {
+      if (fallbackImg) fallbackImg.style.display = 'block';
+      video.style.display = 'none';
+      if (mobileSoundBtn) mobileSoundBtn.style.display = 'none';
+    });
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1399,10 +1436,20 @@ Submitted: ${submittedTime}`;
     if (dSelect) dSelect.value = lang;
     if (mSelect) mSelect.value = lang;
 
+    // Sync mobile lang pills
+    const mobilePills = document.querySelectorAll('.lang-pill-btn');
+    mobilePills.forEach(pill => {
+      if (pill.getAttribute('data-lang') === lang) {
+        pill.classList.add('active');
+      } else {
+        pill.classList.remove('active');
+      }
+    });
+
     const i18nElements = document.querySelectorAll('[data-i18n]');
     i18nElements.forEach(el => {
       const key = el.getAttribute('data-i18n');
-      if (TRANSLATIONS[lang][key]) {
+      if (TRANSLATIONS[lang] && TRANSLATIONS[lang][key]) {
         if (key === 'stepCounter') {
           el.textContent = TRANSLATIONS[lang].stepCounter.replace('{step}', currentStep);
         } else {
@@ -1422,26 +1469,50 @@ Submitted: ${submittedTime}`;
     if (dSelect) dSelect.addEventListener('change', (e) => applyLanguage(e.target.value));
     if (mSelect) mSelect.addEventListener('change', (e) => applyLanguage(e.target.value));
 
+    const mobilePills = document.querySelectorAll('.lang-pill-btn');
+    mobilePills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const targetLang = pill.getAttribute('data-lang');
+        if (targetLang) applyLanguage(targetLang);
+      });
+    });
+
     applyLanguage(saved);
   }
 
   // ==========================================================================
-  // INITIALIZE ALL SYSTEMS
+  // INITIALIZE ALL SYSTEMS (Safe isolated execution per module)
   // ==========================================================================
-  document.addEventListener('DOMContentLoaded', () => {
-    initStatusBadge();
-    initIntro();
-    initCursorAndMagnets();
-    initHeader();
-    initHeroCarousel();
-    initCounters();
-    initHeadingAndClipReveals();
-    initAboutMotion();
-    initTestimonials();
-    initPhotosAndLightbox();
-    initVideo();
-    initCollabForm();
-    initLanguage();
-  });
+  function boot() {
+    const modules = [
+      { name: 'StatusBadge', fn: initStatusBadge },
+      { name: 'Intro', fn: initIntro },
+      { name: 'CursorAndMagnets', fn: initCursorAndMagnets },
+      { name: 'Header', fn: initHeader },
+      { name: 'HeroCarousel', fn: initHeroCarousel },
+      { name: 'Counters', fn: initCounters },
+      { name: 'HeadingAndClipReveals', fn: initHeadingAndClipReveals },
+      { name: 'AboutMotion', fn: initAboutMotion },
+      { name: 'Testimonials', fn: initTestimonials },
+      { name: 'PhotosAndLightbox', fn: initPhotosAndLightbox },
+      { name: 'Video', fn: initVideo },
+      { name: 'CollabForm', fn: initCollabForm },
+      { name: 'Language', fn: initLanguage }
+    ];
+
+    modules.forEach(mod => {
+      try {
+        mod.fn();
+      } catch (err) {
+        console.warn(`[Sedo Init Error in ${mod.name}]:`, err);
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
 
 })();

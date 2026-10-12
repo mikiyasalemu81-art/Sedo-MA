@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <!-- HEAD -->
+  <meta charset="UTF-8">
   <title>Sedo Martial Art | Official Site</title>
   <meta name="description" content="Sedo Martial Art: Taekwondo champion, MMA fighter and creator. Work with Sedo for ads, sponsorships and campaigns.">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta property="og:title" content="Sedo Martial Art">
+  <meta property="og:description" content="Taekwondo champion, MMA fighter and creator. Work with Sedo for ads, sponsorships and campaigns.">
   <meta property="og:image" content="assets/images/sedo-poster.webp">
 
   <!-- FAVICON AND APP ICONS -->
@@ -15,21 +16,20 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0A0A0A">
 
-  <!-- Preload Hero Image & Google Fonts -->
+  <!-- PRELOAD FONTS & HERO ASSETS WITH display=swap -->
   <link rel="preload" as="image" href="assets/images/sedo-poster.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Jost:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@400;500;700&family=Noto+Sans+Ethiopic:wght@400;500;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Jost:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@400;500;700&family=Noto+Sans+Ethiopic:wght@400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- CUSTOM MOUSE CURSOR -->
+  <!-- CUSTOM MOUSE CURSOR (Desktop only) -->
   <div id="custom-cursor" class="custom-cursor" aria-hidden="true"></div>
 
-  <!-- 1. LOADING INTRO SCREEN -->
+  <!-- 1. LOADING INTRO (Hard-removed after 1.6s, max 3s safety timeout) -->
   <div id="intro-screen" class="intro-screen" aria-hidden="true">
     <div class="intro-content">
       <div class="intro-logo-mark">
@@ -45,17 +45,17 @@
     </div>
   </div>
 
-  <!-- 2. FIXED HEADER -->
+  <!-- 2. FIXED HEADER (Three-part flex: [logo] [wordmark] [controls]) -->
   <header id="site-header" class="site-header">
     <div class="header-container">
       
-      <!-- Brand Logo Mark (40px high) & Wordmark in Bodoni Moda -->
+      <!-- Left: Logo & Wordmark -->
       <a href="#hero" class="brand-link" aria-label="Sedo Martial Art Home">
-        <img src="assets/logo/sedo-logo.png" alt="Sedo Martial Art logo" class="header-logo-img" height="40">
+        <img src="assets/logo/sedo-logo.png" alt="Sedo Martial Art logo" class="header-logo-img" height="40" width="40">
         <span class="brand-wordmark">Sedo Martial Art</span>
       </a>
 
-      <!-- Desktop Center Navigation -->
+      <!-- Center: Desktop Nav -->
       <nav class="desktop-nav" aria-label="Main Navigation">
         <ul class="nav-links">
           <li><a href="#hero" class="nav-link active" data-nav="hero" data-i18n="navHome">Home</a></li>
@@ -67,23 +67,24 @@
         </ul>
       </nav>
 
-      <!-- Right Actions: TikTok Pill & Language Selector -->
-      <div class="header-right-actions">
-        <a href="https://www.tiktok.com/@sedomartialart3" target="_blank" rel="noopener noreferrer" class="tiktok-pill-btn" aria-label="TikTok @sedomartialart3">
-          <svg class="tiktok-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <!-- Right Controls: TikTok Pill (desktop), Compact Lang Selector, Mobile Hamburger -->
+      <div class="header-controls">
+        
+        <a href="https://www.tiktok.com/@sedomartialart3" target="_blank" rel="noopener noreferrer" class="tiktok-pill-btn desktop-only" aria-label="TikTok @sedomartialart3">
+          <svg class="tiktok-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.85.12V9.4a6.33 6.33 0 0 0-.85-.06A6.34 6.34 0 0 0 3.14 15.7a6.34 6.34 0 0 0 6.34 6.34c3.5 0 6.34-2.84 6.34-6.34V8.4a8.28 8.28 0 0 0 4.77 1.5V6.45a4.83 4.83 0 0 1-1-.24z"/>
           </svg>
           <span class="tiktok-handle">@sedomartialart3</span>
         </a>
 
-        <!-- Language Dropdown -->
-        <div class="lang-selector-wrap">
-          <label for="lang-select" class="visually-hidden">Select Language</label>
-          <select id="lang-select" class="lang-select-dropdown" aria-label="Select Language">
-            <option value="en">English</option>
-            <option value="am">አማርኛ</option>
-            <option value="om">Afaan Oromo</option>
-            <option value="ar">العربية</option>
+        <!-- Compact Language Selector: Short Codes EN, AM, OM, AR with Chevron (max-width: 84px) -->
+        <div class="lang-selector-compact">
+          <label for="lang-select" class="visually-hidden">Language</label>
+          <select id="lang-select" class="lang-compact-dropdown" aria-label="Select Language">
+            <option value="en" title="English">EN</option>
+            <option value="am" title="አማርኛ">AM</option>
+            <option value="om" title="Afaan Oromo">OM</option>
+            <option value="ar" title="العربية">AR</option>
           </select>
         </div>
 
@@ -96,7 +97,7 @@
 
     </div>
 
-    <!-- Mobile Full-screen Overlay -->
+    <!-- Mobile Full-Screen Overlay Navigation -->
     <div id="mobile-overlay" class="mobile-overlay" aria-hidden="true">
       <div class="mobile-overlay-content">
         <nav class="mobile-nav" aria-label="Mobile Navigation">
@@ -112,16 +113,16 @@
 
         <div class="mobile-extra-bar">
           <div class="mobile-lang-wrap">
-            <label for="mobile-lang-select" class="mobile-lang-label" data-i18n="languageLabel">Language</label>
-            <select id="mobile-lang-select" class="lang-select-dropdown mobile-dropdown" aria-label="Select Language">
-              <option value="en">English</option>
-              <option value="am">አማርኛ</option>
-              <option value="om">Afaan Oromo</option>
-              <option value="ar">العربية</option>
-            </select>
+            <span class="mobile-lang-title">Language</span>
+            <div class="mobile-lang-pills">
+              <button type="button" class="lang-pill-btn active" data-lang="en">English (EN)</button>
+              <button type="button" class="lang-pill-btn" data-lang="am">አማርኛ (AM)</button>
+              <button type="button" class="lang-pill-btn" data-lang="om">Afaan Oromo (OM)</button>
+              <button type="button" class="lang-pill-btn" data-lang="ar">العربية (AR)</button>
+            </div>
           </div>
           <a href="https://www.tiktok.com/@sedomartialart3" target="_blank" rel="noopener noreferrer" class="tiktok-pill-btn mobile-tiktok">
-            <span>Follow @sedomartialart3</span>
+            <span>Follow @sedomartialart3 on TikTok</span>
           </a>
         </div>
       </div>
@@ -133,7 +134,7 @@
     <!-- 3. HERO (Full Screen: min-height 100svh on desktop & phone) -->
     <section id="hero" class="hero-section" aria-labelledby="hero-main-title">
       
-      <!-- 3-Slide Background Carousel with Ken Burns drift -->
+      <!-- 3-Slide Background Carousel -->
       <div class="hero-carousel-track" id="hero-carousel" aria-hidden="true">
         <div class="hero-slide active slide-poster" style="background-image: url('assets/images/sedo-poster.webp');"></div>
         <div class="hero-slide slide-portrait" style="background-image: url('assets/images/sedo-portrait.webp');"></div>
@@ -148,12 +149,12 @@
 
       <!-- Carousel Navigation Arrows (Desktop) -->
       <button type="button" class="carousel-arrow arrow-prev" id="carousel-prev" aria-label="Previous Slide">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
       </button>
       <button type="button" class="carousel-arrow arrow-next" id="carousel-next" aria-label="Next Slide">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
       </button>
@@ -162,9 +163,9 @@
       <div class="hero-container">
         <div class="hero-content">
 
-          <!-- Hero Logo Mark (assets/logo/sedo-logo.png at ~96px high) -->
+          <!-- Hero Logo Mark (assets/logo/sedo-logo.png: ~96px desktop, 72px phone) -->
           <div class="hero-logo-wrapper">
-            <img src="assets/logo/sedo-logo.png" alt="Sedo Martial Art logo" class="hero-logo-img">
+            <img src="assets/logo/sedo-logo.png" alt="Sedo Martial Art logo" class="hero-logo-img" width="96" height="96">
           </div>
 
           <!-- Pill Label & Status Badge Row -->
@@ -198,20 +199,20 @@
             </a>
           </div>
 
-          <!-- Animated Counting Stats -->
+          <!-- Counters (Visible final values by default as fallback) -->
           <div class="hero-stats-row">
             <div class="stat-box">
-              <span class="stat-number" id="counter-followers" data-target="2.4" data-suffix="M">0M</span>
+              <span class="stat-number" id="counter-followers" data-target="2.4" data-suffix="M">2.4M</span>
               <span class="stat-caption" data-i18n="statFollowers">Followers</span>
             </div>
             <div class="stat-sep" aria-hidden="true">·</div>
             <div class="stat-box">
-              <span class="stat-number" id="counter-likes" data-target="61.2" data-suffix="M">0M</span>
+              <span class="stat-number" id="counter-likes" data-target="61.2" data-suffix="M">61.2M</span>
               <span class="stat-caption" data-i18n="statLikes">Likes</span>
             </div>
             <div class="stat-sep" aria-hidden="true">·</div>
             <div class="stat-box">
-              <span class="stat-number" id="counter-campaigns" data-target="15" data-suffix="+">0+</span>
+              <span class="stat-number" id="counter-campaigns" data-target="15" data-suffix="+">15+</span>
               <span class="stat-caption" data-i18n="statCampaigns">Brand deals and campaigns: [NUMBER]</span>
             </div>
           </div>
@@ -298,7 +299,7 @@
 
               <div class="timeline-milestones" id="timeline-milestones-list">
                 
-                <div class="milestone-item" data-year="[YEAR]">
+                <div class="milestone-item active" data-year="[YEAR]">
                   <div class="milestone-dot" aria-hidden="true"></div>
                   <div class="milestone-body">
                     <span class="milestone-year">[YEAR]</span>
@@ -562,6 +563,9 @@
             class="video-card-anchor" 
             aria-label="Watch Sedo Martial Art highlight video on TikTok"
           >
+            <!-- Poster fallback image if video is unavailable or offline -->
+            <img src="assets/images/sedo-poster.webp" alt="Sedo Martial Art highlight fallback" class="video-fallback-img" id="video-fallback-img">
+
             <video 
               id="sedo-main-video" 
               class="full-vertical-video" 
@@ -961,6 +965,10 @@
     </div>
   </div>
 
+  <!-- INLINE PROGRESSIVE ENHANCEMENT BOOTSTRAP (Mark js-ready only when DOM is parsed) -->
+  <script>
+    document.documentElement.classList.add('js-ready');
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
