@@ -3,21 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Sedo Martial Art — Official Brand & Sponsorships</title>
-  <meta name="description" content="Official personal brand and commercial partnerships portal for Sedo Martial Art, Ethiopian MMA fighter and Taekwondo champion with 2.4M TikTok followers and 61.2M likes.">
+  <title>Sedo Martial Art | Official Site</title>
+  <meta name="description" content="Sedo Martial Art: Taekwondo champion, MMA fighter and creator. Work with Sedo for ads, sponsorships and campaigns.">
+
+  <!-- Favicon & App Icons -->
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0A0A0A">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Sedo Martial Art — Official Brand & Sponsorships">
-  <meta property="og:description" content="Taekwondo champion. MMA fighter. I fight for Ethiopia. Direct partnerships and brand collaborations.">
+  <meta property="og:title" content="Sedo Martial Art">
+  <meta property="og:description" content="Sedo Martial Art: Taekwondo champion, MMA fighter and creator. Work with Sedo for ads, sponsorships and campaigns.">
   <meta property="og:image" content="assets/images/sedo-poster.webp">
   <meta property="og:type" content="website">
 
   <!-- Preload hero poster -->
   <link rel="preload" as="image" href="assets/images/sedo-poster.webp">
 
-  <!-- Google Fonts: Bodoni Moda (Display), Jost (Body), Noto Sans Ethiopic, Noto Sans Arabic -->
+  <!-- Preload Google Fonts: Bodoni Moda & Jost -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Jost:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@400;500;700&family=Noto+Sans+Ethiopic:wght@400;500;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Jost:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@400;500;700&family=Noto+Sans+Ethiopic:wght@400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
@@ -30,11 +38,14 @@
   <!-- 1. LOADING INTRO SCREEN -->
   <div id="intro-screen" class="intro-screen" aria-hidden="true">
     <div class="intro-content">
+      <div class="intro-logo-mark">
+        <img src="assets/logo/sedo-logo.png" alt="Sedo Martial Art logo" class="intro-logo-img">
+      </div>
       <div class="intro-wordmark-wrapper">
         <span class="intro-letter">S</span>
-        <span class="intro-letter">E</span>
-        <span class="intro-letter">D</span>
-        <span class="intro-letter">O</span>
+        <span class="intro-letter">e</span>
+        <span class="intro-letter">d</span>
+        <span class="intro-letter">o</span>
       </div>
       <div class="intro-red-sweep"></div>
     </div>
@@ -44,11 +55,9 @@
   <header id="site-header" class="site-header">
     <div class="header-container">
       
-      <!-- Brand Logo Mark & Name -->
+      <!-- Brand Logo Mark (40px high) & Wordmark in Bodoni Moda -->
       <a href="#hero" class="brand-link" aria-label="Sedo Martial Art Home">
-        <div class="brand-avatar-box">
-          <img src="assets/images/sedo-poster.webp" alt="Sedo avatar" class="brand-avatar-img">
-        </div>
+        <img src="assets/logo/sedo-logo.png" alt="Sedo Martial Art logo" class="header-logo-img" height="40">
         <span class="brand-wordmark">Sedo Martial Art</span>
       </a>
 
@@ -127,7 +136,7 @@
 
   <main id="main-content">
     
-    <!-- 3. HERO (Full Screen: min-height 100svh) -->
+    <!-- 3. HERO (Full Screen: min-height 100svh on desktop & phone) -->
     <section id="hero" class="hero-section" aria-labelledby="hero-main-title">
       
       <!-- 3-Slide Background Carousel with Ken Burns drift -->
@@ -158,6 +167,11 @@
       <!-- Hero Centered Content Container -->
       <div class="hero-container">
         <div class="hero-content">
+
+          <!-- Hero Logo Mark (assets/logo/sedo-logo.png at ~96px high) -->
+          <div class="hero-logo-wrapper">
+            <img src="assets/logo/sedo-logo.png" alt="Sedo Martial Art logo" class="hero-logo-img">
+          </div>
 
           <!-- Pill Label & Status Badge Row -->
           <div class="hero-badges-row">
@@ -220,10 +234,9 @@
 
     </section>
 
-    <!-- BRAND LOGO MARQUEE (Idea 14) -->
+    <!-- BRAND LOGO MARQUEE -->
     <section class="partners-marquee-section" aria-label="Brand Partnerships">
       <div class="marquee-track" id="partners-marquee-track">
-        <!-- If assets/partners/ is empty, placeholder strip renders cleanly -->
         <div class="marquee-content">
           <span class="partner-placeholder-item" data-i18n="partnerPlaceholder">Partner logos coming soon · Brand Partnerships · Official Sponsors · Combat Promotions · </span>
           <span class="partner-placeholder-item" data-i18n="partnerPlaceholder">Partner logos coming soon · Brand Partnerships · Official Sponsors · Combat Promotions · </span>
@@ -239,7 +252,7 @@
 
         <div class="about-grid">
           
-          <!-- Left: Portrait with Parallax & Offset Red Frame (Idea 13) -->
+          <!-- Left: Portrait with Parallax & Offset Red Frame -->
           <div class="about-visual-col">
             <div class="portrait-parallax-box" id="portrait-parallax-wrap">
               <div class="parallax-red-frame" aria-hidden="true"></div>
@@ -254,7 +267,7 @@
               >
             </div>
 
-            <!-- Press Kit Download Button (Idea 18) -->
+            <!-- Press Kit Download Button -->
             <div class="press-kit-action">
               <a 
                 href="assets/press/sedo-press-kit.pdf" 
@@ -271,7 +284,7 @@
             </div>
           </div>
 
-          <!-- Right: Biography, Timeline (Idea 9), Pull Quote -->
+          <!-- Right: Biography, Timeline, Pull Quote -->
           <div class="about-info-col">
             
             <p class="about-bio-paragraph text-fade-in" data-i18n="aboutBio">
@@ -283,7 +296,7 @@
               Power. Pride. Discipline.
             </blockquote>
 
-            <!-- Career Timeline with Scroll-Driven Red Progress Line (Idea 9) -->
+            <!-- Career Timeline with Scroll-Driven Red Progress Line -->
             <div class="timeline-block">
               <div class="timeline-progress-rail" aria-hidden="true">
                 <div class="timeline-progress-fill" id="timeline-progress-line"></div>
@@ -337,7 +350,7 @@
       </div>
     </section>
 
-    <!-- 5. SERVICES SECTION ("Work with Sedo" Fight Card - Idea 10) -->
+    <!-- 5. SERVICES SECTION ("Work with Sedo" Fight Card) -->
     <section id="services" class="services-section clip-wipe-section" aria-labelledby="services-section-title">
       <div class="section-container">
         
@@ -348,7 +361,7 @@
           </p>
         </div>
 
-        <!-- Fight Card Layout (Idea 10) -->
+        <!-- Fight Card Layout -->
         <div class="fight-card-list">
           
           <div class="fight-card-row">
@@ -444,7 +457,7 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS SLIDER (Idea 19 - Placeholders Only) -->
+    <!-- TESTIMONIALS SLIDER -->
     <section class="testimonials-section clip-wipe-section" aria-labelledby="testimonials-title">
       <div class="section-container">
         
@@ -480,7 +493,7 @@
       </div>
     </section>
 
-    <!-- 6. PHOTOS (Scroll-Driven Horizontal Gallery - Idea 5) -->
+    <!-- 6. PHOTOS (Scroll-Driven Horizontal Gallery) -->
     <section id="photos" class="photos-section clip-wipe-section" aria-labelledby="photos-section-title">
       <div class="photos-sticky-container">
         
@@ -534,7 +547,7 @@
       </div>
     </section>
 
-    <!-- 7. VIDEO SECTION ("Watch the latest" - Full-Height TikTok Panel - Idea 11) -->
+    <!-- 7. VIDEO SECTION ("Watch the latest" - Full-Height TikTok Panel) -->
     <section id="videos" class="video-section clip-wipe-section" aria-labelledby="video-section-title">
       <div class="video-section-inner">
         
@@ -601,7 +614,7 @@
       </div>
     </section>
 
-    <!-- 8. COLLAB FORM (6 Steps Professional Multi-Step - Idea 15 & 16) -->
+    <!-- 8. COLLAB FORM (6 Steps Professional Multi-Step) -->
     <section id="collab" class="collab-section clip-wipe-section" aria-labelledby="collab-section-title">
       <div class="section-container collab-wrapper">
         
@@ -614,7 +627,7 @@
 
         <div class="collab-form-box">
           
-          <!-- Progress Header (Idea 15) -->
+          <!-- Progress Header -->
           <div class="collab-progress-bar-row">
             <span id="collab-step-label" class="step-indicator-text" data-i18n="stepCounter">Step 1 of 6</span>
             <div class="collab-progress-rail" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="6" id="form-progress-bar">
@@ -693,7 +706,7 @@
               </div>
             </div>
 
-            <!-- STEP 3: THE COLLABORATION (Icon Cards - Idea 16) -->
+            <!-- STEP 3: THE COLLABORATION -->
             <div class="form-step-pane" data-step="3">
               <p class="step-intro-note" data-i18n="step3Intro">Select one or more collaboration models.</p>
 
@@ -850,7 +863,7 @@
               </div>
             </div>
 
-            <!-- STEP 6: SEND (Dispatch) -->
+            <!-- STEP 6: SEND -->
             <div class="form-step-pane" data-step="6">
               <div class="send-confirmation-block">
                 <span class="send-ready-icon">⚡</span>
@@ -914,7 +927,7 @@
     </div>
   </footer>
 
-  <!-- LIGHTBOX MODAL FOR PHOTOS (Keyboard & Swipe accessible) -->
+  <!-- LIGHTBOX MODAL FOR PHOTOS -->
   <div id="gallery-lightbox" class="lightbox-dialog" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Photo Lightbox">
     <button type="button" class="lightbox-btn-close" id="lb-close" aria-label="Close Lightbox">&times;</button>
     <button type="button" class="lightbox-btn-nav lb-prev" id="lb-prev" aria-label="Previous Photo">&#8249;</button>
