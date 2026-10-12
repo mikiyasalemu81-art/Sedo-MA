@@ -48,7 +48,7 @@ html {
   font-size: 16px;
   line-height: 1.6;
   scroll-behavior: smooth;
-  scroll-padding-top: var(--nav-h);
+  scroll-padding-top: 72px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -230,17 +230,37 @@ button {
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--nav-h);
+  height: 80px;
   z-index: 2000;
   background: transparent;
   border-bottom: 1px solid transparent;
-  transition: background-color 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease, height 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: height, background-color;
 }
 
 .site-header.is-scrolled {
-  background-color: rgba(10, 10, 10, 0.94);
+  background-color: rgba(10, 10, 10, 0.96);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom-color: var(--divider);
+  height: 64px;
+}
+
+/* Scroll progress bar: thin red line at top of page, below header (<1% vh) */
+.scroll-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2.5px;
+  max-height: 0.8vh;
+  background: var(--sig-red);
+  box-shadow: 0 0 8px rgba(177, 15, 26, 0.6);
+  z-index: 2001;
+  pointer-events: none;
+  transform-origin: left center;
+  transition: opacity 0.2s ease;
+  will-change: width;
 }
 
 .header-container {
@@ -825,24 +845,29 @@ button {
 }
 
 /* ==========================================================================
-   PRIORITY 1: PROGRESSIVE ENHANCEMENT FOR REVEALS & HEADINGS
+   SMOOTH SCROLL TRANSITIONS & PROGRESSIVE ENHANCEMENT
    All content is 100% visible by default in base CSS.
    Only when javascript is ready (html.js-ready) do unrevealed elements hide.
    ========================================================================== */
 .clip-wipe-section {
   clip-path: none;
   opacity: 1;
-  transition: clip-path 0.95s var(--ease-editorial), opacity 0.5s ease;
+  transition: clip-path 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: clip-path;
 }
 
-.split-letter-heading {
+.split-letter-heading,
+.section-heading {
   overflow: hidden;
+  transform: none;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1) 120ms;
+  will-change: transform;
 }
 
 .split-letter-heading .char {
   display: inline-block;
   transform: none;
-  transition: transform 0.65s var(--ease-editorial);
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
 }
 
@@ -850,16 +875,33 @@ button {
   opacity: 1;
   filter: none;
   transform: none;
-  transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
+  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1) 200ms, filter 700ms cubic-bezier(0.22, 1, 0.36, 1) 200ms, transform 700ms cubic-bezier(0.22, 1, 0.36, 1) 200ms;
+  will-change: opacity, filter, transform;
+}
+
+/* Base states for service rows (visible by default) */
+.fight-card-row {
+  transform: none;
+  opacity: 1;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), opacity 700ms ease;
+  will-change: transform, opacity;
 }
 
 /* Progressive Enhancement when JS is active and element is not yet in view */
 html.js-ready .clip-wipe-section:not(.is-revealed) {
-  clip-path: inset(0 0 100% 0);
+  clip-path: inset(100% 0 0 0);
 }
 
 html.js-ready .clip-wipe-section.is-revealed {
   clip-path: inset(0 0 0 0);
+}
+
+html.js-ready .clip-wipe-section:not(.is-revealed) .section-heading {
+  transform: translateY(40px);
+}
+
+html.js-ready .clip-wipe-section.is-revealed .section-heading {
+  transform: translateY(0);
 }
 
 html.js-ready .clip-wipe-section:not(.is-revealed) .split-letter-heading .char {
@@ -872,8 +914,8 @@ html.js-ready .clip-wipe-section.is-revealed .split-letter-heading .char {
 
 html.js-ready .clip-wipe-section:not(.is-revealed) .text-fade-in {
   opacity: 0;
-  filter: blur(4px);
-  transform: translateY(14px);
+  filter: blur(8px);
+  transform: translateY(16px);
 }
 
 html.js-ready .clip-wipe-section.is-revealed .text-fade-in {
@@ -881,6 +923,31 @@ html.js-ready .clip-wipe-section.is-revealed .text-fade-in {
   filter: blur(0);
   transform: translateY(0);
 }
+
+/* Service rows alternating slide-in with 90ms stagger */
+html.js-ready .services-section:not(.is-revealed) .fight-card-row:nth-child(odd) {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+html.js-ready .services-section:not(.is-revealed) .fight-card-row:nth-child(even) {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+html.js-ready .services-section.is-revealed .fight-card-row {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+html.js-ready .services-section.is-revealed .fight-card-row:nth-child(1) { transition-delay: 150ms; }
+html.js-ready .services-section.is-revealed .fight-card-row:nth-child(2) { transition-delay: 240ms; }
+html.js-ready .services-section.is-revealed .fight-card-row:nth-child(3) { transition-delay: 330ms; }
+html.js-ready .services-section.is-revealed .fight-card-row:nth-child(4) { transition-delay: 420ms; }
+html.js-ready .services-section.is-revealed .fight-card-row:nth-child(5) { transition-delay: 510ms; }
+html.js-ready .services-section.is-revealed .fight-card-row:nth-child(6) { transition-delay: 600ms; }
+html.js-ready .services-section.is-revealed .fight-card-row:nth-child(7) { transition-delay: 690ms; }
+html.js-ready .services-section.is-revealed .fight-card-row:nth-child(8) { transition-delay: 780ms; }
 
 /* ==========================================================================
    4. ABOUT SECTION ("The career" & Idea 13 Parallax & Idea 9 Timeline)
@@ -2101,6 +2168,8 @@ html[dir="rtl"] .btn-spinner-icon {
 
 /* ==========================================================================
    PREFERS-REDUCED-MOTION
+   Disable clip-path wipes, parallax, blurs, scaling, staggers and smooth scrolling.
+   Keep only short opacity fades of 200ms or less.
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -2109,33 +2178,58 @@ html[dir="rtl"] .btn-spinner-icon {
     transition-duration: 0.001ms !important;
   }
 
-  .intro-screen {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  .intro-screen,
+  .custom-cursor,
+  .hero-spotlight {
     display: none !important;
   }
 
-  .custom-cursor {
-    display: none !important;
-  }
-
-  .clip-wipe-section {
+  .clip-wipe-section,
+  html.js-ready .clip-wipe-section:not(.is-revealed),
+  html.js-ready .clip-wipe-section.is-revealed {
     clip-path: none !important;
+    opacity: 1 !important;
+    transition: opacity 180ms ease !important;
   }
 
-  .split-letter-heading .char {
+  .section-heading,
+  html.js-ready .clip-wipe-section:not(.is-revealed) .section-heading,
+  html.js-ready .clip-wipe-section.is-revealed .section-heading,
+  .split-letter-heading .char,
+  html.js-ready .clip-wipe-section:not(.is-revealed) .split-letter-heading .char,
+  html.js-ready .clip-wipe-section.is-revealed .split-letter-heading .char {
     transform: none !important;
+    transition: none !important;
   }
 
-  .text-fade-in {
+  .text-fade-in,
+  html.js-ready .clip-wipe-section:not(.is-revealed) .text-fade-in,
+  html.js-ready .clip-wipe-section.is-revealed .text-fade-in {
     opacity: 1 !important;
     filter: none !important;
     transform: none !important;
+    transition: opacity 180ms ease !important;
+  }
+
+  .fight-card-row,
+  html.js-ready .services-section:not(.is-revealed) .fight-card-row,
+  html.js-ready .services-section.is-revealed .fight-card-row {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: opacity 180ms ease !important;
+  }
+
+  .portrait-img,
+  #hero-carousel {
+    transform: none !important;
+    opacity: 1 !important;
   }
 
   .hero-slide {
     animation: none !important;
-  }
-
-  html {
-    scroll-behavior: auto;
   }
 }

@@ -648,14 +648,56 @@ const STATUS_CONFIG = {
     const overlay = document.getElementById('mobile-overlay');
     const navLinks = document.querySelectorAll('.nav-link');
     const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    const progressBar = document.getElementById('scroll-progress-line');
+    const heroTrack = document.getElementById('hero-carousel');
+    const heroSection = document.getElementById('hero');
 
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 30) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Scroll-linked progress line (RAF) and Hero effects
+    let ticking = false;
+
+    function onScroll() {
+      const scrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+      // Header height & background transition at 80px
+      if (scrollY > 80) {
         header.classList.add('is-scrolled');
       } else {
         header.classList.remove('is-scrolled');
       }
+
+      // Red progress line fills from left to right across entire page
+      if (progressBar && docHeight > 0) {
+        const progressPercent = Math.min(Math.max((scrollY / docHeight) * 100, 0), 100);
+        progressBar.style.width = `${progressPercent}%`;
+      }
+
+      // Hero scroll-linked scale down (0.96) and opacity drop (0.6)
+      if (heroTrack && heroSection && !prefersReducedMotion) {
+        const heroHeight = heroSection.offsetHeight;
+        if (scrollY <= heroHeight) {
+          const ratio = Math.min(scrollY / heroHeight, 1);
+          const scale = 1 - (0.04 * ratio); // 1.0 -> 0.96
+          const opacity = 1 - (0.4 * ratio); // 1.0 -> 0.6
+          heroTrack.style.transform = `scale(${scale.toFixed(3)})`;
+          heroTrack.style.opacity = opacity.toFixed(2);
+        }
+      }
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(onScroll);
+        ticking = true;
+      }
     }, { passive: true });
+
+    // Initial pass
+    onScroll();
 
     if (toggleBtn && overlay) {
       toggleBtn.addEventListener('click', () => {
@@ -838,12 +880,13 @@ const STATUS_CONFIG = {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-revealed');
+          // Run transition once; do not replay when scrolling back up
           obs.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.05,
-      rootMargin: '50px 0px 0px 0px'
+      threshold: 0.15,
+      rootMargin: '0px 0px -10% 0px'
     });
 
     clipSections.forEach(sec => {
@@ -872,13 +915,15 @@ const STATUS_CONFIG = {
     const timeline = document.querySelector('.timeline-block');
     const milestones = document.querySelectorAll('.milestone-item');
 
-    // Parallax
+    // Parallax: portrait moves slightly slower than text (offset ~12% of height), frame stays fixed
     if (img && wrap && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       window.addEventListener('scroll', () => {
         const rect = wrap.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
-          const shift = (rect.top / window.innerHeight) * 30;
-          img.style.transform = `translate3d(0, ${shift}px, 0)`;
+          const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+          const maxShift = rect.height * 0.12;
+          const shift = (progress - 0.5) * maxShift;
+          img.style.transform = `translate3d(0, ${shift.toFixed(1)}px, 0)`;
         }
       }, { passive: true });
     }

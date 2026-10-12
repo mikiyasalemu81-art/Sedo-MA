@@ -66,6 +66,16 @@ const STATUS_CONFIG = {
    - **Parallax Portrait**: Subtle depth shift against the red offset frame on scroll.
    - **Brand Partner Marquee**: Infinite scrolling strip with automatic graceful fallback if logos are pending.
    - **Testimonials Slider**: Client quotes slider formatted strictly with placeholders.
+5. **Smooth Scroll Transitions & Scroll-Linked Effects**:
+   - **Native Smooth Scrolling**: Native `scroll-behavior: smooth` with `scroll-padding-top: 72px` ensuring header clearance when jumping between navigation anchor links.
+   - **Scroll Progress Bar**: A lightweight red progress line at the top of the viewport (below header) filling from left to right as the visitor scrolls, updated continuously via `requestAnimationFrame` with height `< 1% vh`.
+   - **Section Upward Clip Wipes**: Main sections (About, Services, Videos, Photos, Collab) enter with a bottom-to-top clip wipe over 900ms (`cubic-bezier(0.22, 1, 0.36, 1)`).
+   - **Staggered Heading & Blur-to-Sharp Reveals**: Headings rise with a 120ms delay (`translateY(40px) -> 0`), followed by body content resolving from `filter: blur(8px)` to `blur(0)` with opacity fade over 700ms.
+   - **Alternating Service Rows**: Service cards slide in from alternating directions (`-40px` and `+40px`) with a sequential 90ms stagger.
+   - **Parallax Portrait**: Sedo's about portrait shifts smoothly across ~12% of its height, while the signature red frame remains anchored.
+   - **Hero Scroll Parallax**: Background carousel scales gracefully from `1.0` to `0.96` with opacity dropping to `0.6` as the next section rises over it.
+   - **Header Condensation**: Dynamically shrinks from 80px to 64px with a frosted black blur after 80px of scroll.
+   - **Accessibility & Performance Safety**: `IntersectionObserver` executes reveals once (`threshold: 0.15`, `rootMargin: "0px 0px -10% 0px"`). Layout properties (`width`, `height`, `top`) are never animated in section reveals; `prefers-reduced-motion: reduce` turns off clip wipes, parallax, blur, and scaling, retaining only short opacity fades under 200ms.
 
 ---
 
