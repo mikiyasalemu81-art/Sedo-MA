@@ -1,6 +1,6 @@
-# Sedo Martial Art — Personal Brand & Sponsorship Portal
+# Sedo Martial Art — Official Brand & Sponsorships Portal
 
-Production-ready personal brand and commercial partnership website for **Sedo Martial Art**, an Ethiopian MMA fighter and martial arts creator with 2.4M TikTok followers and 61.2M likes. Designed for attracting brand deals, advertisements, and athletic sponsorships.
+Production-ready personal brand and commercial partnerships website for **Sedo Martial Art**, an Ethiopian MMA fighter and Taekwondo champion with **2.4M TikTok followers** and **61.2M likes**. Tailored specifically for attracting premium brand deals, sponsorships, and commercial endorsements.
 
 ---
 
@@ -8,104 +8,96 @@ Production-ready personal brand and commercial partnership website for **Sedo Ma
 
 ```text
 sedo-site/
-├── index.html            # Semantic HTML5, accessible structure, SEO meta
-├── styles.css            # Custom editorial CSS, deep black & red palette, zero-radius
-├── script.js             # 4-language i18n, multi-step form, 3D tilt, video controller
-├── package.json          # Minimal package.json ("private": true, no dependencies)
-├── README.md             # Documentation, deployment guide, and asset guide
+├── index.html            # Semantic HTML5, 6-step collab form, phone video panel, SEO meta
+├── styles.css            # Custom editorial styling, #0A0A0A / #B10F1A / #F3EDE6 palette
+├── script.js             # Status config, 4-language i18n, motion engine, form validator
+├── package.json          # Minimal package manifest ("private": true, no dependencies)
+├── README.md             # Complete documentation and deployment guide
 └── assets/
     ├── images/
-    │   ├── sedo-poster.webp        # Hero 3D card & Photos gallery image
-    │   ├── sedo-portrait.webp      # About section portrait & Photos gallery image
-    │   └── sedo-tiktok-profile.jpg # (Reference only - never displayed on site)
+    │   ├── sedo-poster.webp        # Hero carousel slide 1, combat poster, logo mark
+    │   ├── sedo-portrait.webp      # Hero slide 2 & 3, About portrait, gallery
+    │   └── sedo-tiktok-profile.jpg # (Reference only — never displayed on site)
     ├── video/
-    │   └── sedo-highlight.mp4      # 9:16 phone-frame highlight reel
-    └── logo/
-        └── imako-logo.png          # Builder credit in footer (fallback text included)
+    │   └── sedo-highlight.mp4      # Full-height 9:16 vertical video reel
+    ├── logo/
+    │   └── imako-logo.png          # Builder credit logo (automatic text fallback)
+    ├── press/
+    │   └── sedo-press-kit.pdf      # Downloadable press kit (with coming-soon note)
+    └── partners/                   # Brand partner logos for infinite marquee
 ```
 
 ---
 
-## 🎨 Design Direction
+## 🎯 Configurable Status Badge (Idea 12)
 
-- **Color Palette**:
-  - Deep Black: `#0A0A0A`
-  - Deep Ink Red: `#8E0E16`
-  - Signature Red: `#B10F1A`
-  - Bone White: `#F3EDE6`
-  - Muted Warm Grey: `#9C918C` (secondary text)
-  - Structural 1px dividers: `#2A1A1A`
-- **Typography**:
-  - Display: **Bodoni Moda** (weights 400 and 700)
-  - Body & UI: **Jost** (weights 300, 400, 500)
-  - Fallbacks: **Noto Sans Ethiopic** (Amharic), **Noto Sans Arabic** (Arabic)
-- **Geometry**: Zero border-radius throughout, with an intentional 2px radius permitted only for the signature TikTok buttons.
-- **Hero Card**: Cursor-responsive 3D tilt (max 8 degrees) with dynamic reflection and soft shadow. Disabled on touch devices and when `prefers-reduced-motion` is enabled.
+At the top of [`script.js`](file:///c:/Users/ps/Desktop/Sedo%20martialart/script.js#L1-L25), you can easily modify Sedo's real-time career status:
+
+```javascript
+const STATUS_CONFIG = {
+  text: "Training now", // Options: "Training now", "Fight night soon", "Available for collabs"
+  color: "#B10F1A",     // Signature red accent
+  pulse: true           // Animated breathing dot
+};
+```
 
 ---
 
-## 🌐 Multi-Language Support
+## 🎨 Design System & Creative Features
 
-Includes full 4-language localization with layout mirroring (`dir="rtl"`) for Arabic:
-1. **English (en)** — Default
-2. **Amharic / አማርኛ (am)**
-3. **Afaan Oromo (om)**
-4. **Arabic / العربية (ar)**
+1. **Editorial Palette**: Deep black (`#0A0A0A`), signature red (`#B10F1A`), deep ink red (`#8E0E16`), bone white (`#F3EDE6`), warm grey (`#9C918C`), and hairline structural dividers (`#2A1A1A`).
+2. **Typography**: **Bodoni Moda** for display headlines; **Jost** for body and interface; **Noto Sans Ethiopic** and **Noto Sans Arabic** for native multi-language rendering.
+3. **Geometry**: Zero border-radius across all cards and sections, with fully rounded pill elements reserved exclusively for tags, badges, and TikTok buttons.
+4. **Interactive Motion & Transitions**:
+   - **Loading Intro**: Letter-by-letter reveal of `SEDO`, red sweep bar, and curtain lift (`sessionStorage` cached for first visits only).
+   - **Custom Red Cursor & Magnetic Buttons (Idea 4)**: Smooth cursor tracking and interactive pull on CTAs.
+   - **Split-Letter Headings (Idea 6) & Red Clip-Path Wipes (Idea 7)**: Progressive viewport entry transitions.
+   - **Animated Metric Counters (Idea 8)**: Counting up to 2.4M followers, 61.2M likes, and active campaigns.
+   - **Interactive Career Timeline (Idea 9)**: Dynamic red progress line tracking scroll position across milestone years.
+   - **Fight Card Services (Idea 10)**: Full-width rows with hover red sweep lines.
+   - **Full-Height 9:16 TikTok Video Panel (Idea 11)**: Autoplays in view; unmutes on desktop hover and tap-to-unmute on mobile.
+   - **Parallax Portrait (Idea 13)**: Subtle depth shift against the red offset frame on scroll.
+   - **Brand Partner Marquee (Idea 14)**: Infinite scrolling strip with automatic graceful fallback if logos are pending.
+   - **Testimonials Slider (Idea 19)**: Client quotes slider formatted strictly with placeholders.
 
-Language selection is persisted safely in `localStorage` inside `try/catch` wrappers.
+---
+
+## 💼 6-Step Brand Collaboration Form (Ideas 15 & 16)
+
+A high-converting 6-step partnership workflow:
+- **Step 1 (About you)**: Name, email, phone (Ethiopian local + international validation), preferred contact channel.
+- **Step 2 (Your business)**: Brand name, category dropdown, city/country, website or social handle.
+- **Step 3 (The collaboration)**: Multi-select interactive icon cards (Paid advertisement, Sponsorship, Product promotion, Event appearance, Ambassador partnership, Other), campaign goal, start date picker, audience description.
+- **Step 4 (The details)**: Campaign description (minimum 30 characters with live character counter), discovery source.
+- **Step 5 (Review)**: Comprehensive summary card with direct "Edit" links for each section and consent confirmation.
+- **Step 6 (Dispatch)**: Formulates a plain-text proposal, copies it to the clipboard, opens the Telegram share link targeting **@Donkahan03**, and shows an accessible modal.
+
+---
+
+## 🌐 4-Language Localization & RTL Layout
+
+Supports instantaneous switching between:
+- **English (`en`)**
+- **Amharic / አማርኛ (`am`)**
+- **Afaan Oromo (`om`)**
+- **Arabic / العربية (`ar`)** — sets `dir="rtl"` on `<html>` and dynamically mirrors margins, borders, and flex layouts.
 
 ---
 
 ## 🚀 Deployment to Vercel
 
-This site is a 100% static project that requires **no build step**, **no server**, and **no environment variables**.
+The site is 100% static with **zero build configuration** and **no environment variables required**:
 
-### Step 1: Push or Import to Git
-1. Push the project repository to your GitHub, GitLab, or Bitbucket account:
+1. Push your repository to GitHub:
    ```bash
-   git init
    git add .
-   git commit -m "Initial commit of Sedo Martial Art brand site"
-   git branch -M main
-   git remote add origin <your-repo-url>
+   git commit -m "Production release of Sedo Martial Art brand site"
    git push -u origin main
    ```
-
-### Step 2: Deploy on Vercel
-1. Log in to [vercel.com](https://vercel.com) and click **"Add New..."** > **"Project"**.
-2. Select your repository from the list.
-3. In the project configuration:
-   - **Framework Preset**: `Other`
-   - **Root Directory**: `./` (leave default)
-   - **Build Command**: Leave blank (None)
-   - **Output Directory**: Leave blank (None)
-4. Click **Deploy**. Vercel will serve `index.html` and the `assets/` folder directly.
-
-### Step 3: Test on Mobile
-1. Open the deployed production URL on your smartphone browser (Safari or Chrome).
-2. Test the **Collab Form**:
-   - Fill in Step 1 (Full Name), Step 2 (Phone Number), Step 3 (Brand Name), and Step 4 (Description).
-   - Tap **"Send request"**.
-   - Verify that your proposal is copied to the clipboard and that the Telegram share window opens to send the message to **@Donkahan03**.
-   - Check the confirmation modal to confirm the guidance message appears correctly.
-3. Verify that the **9:16 highlight video** autoplays smoothly when scrolled into view and pauses when scrolled away.
-
----
-
-## ⚙️ Customization & Placeholders
-
-1. **Career Milestones & Biography**:
-   In `index.html` and `script.js`, replace the placeholder tokens `[TITLE]`, `[YEAR]`, and `[WIN]` with Sedo's official match records and tournament titles.
-2. **Builder Link**:
-   In the footer of `index.html`, find `https://YOUR-IMAKO-SITE-URL` and update it to the live website of **Imako Solution**.
-3. **Builder Logo**:
-   Place `imako-logo.png` (or `imako-logo.svg`) inside `assets/logo/`. If absent, the site automatically falls back to clean bone-white text reading **"Imako Solution"** without layout shifts.
-
----
-
-## 🛡️ Accessibility & Performance Standards
-
-- **Semantic Elements**: Structured using `<header>`, `<nav>`, `<main>`, `<section aria-labelledby="...">`, and `<footer>`.
-- **Keyboard Navigation**: Complete tab accessibility with distinct `#B10F1A` focus indicators. Modals feature `Escape` key close and backdrop click dismissals.
-- **Media Optimization**: Hero poster preloaded with `<link rel="preload">`. Gallery images load lazily (`loading="lazy"`). Video uses `preload="none"` with lazy assignment through `IntersectionObserver`.
-- **Motion Accessibility**: Full compliance with `prefers-reduced-motion: reduce`.
+2. In your [Vercel Dashboard](https://vercel.com/new):
+   - Click **Add New...** > **Project** and select your repository.
+   - Framework Preset: **Other**.
+   - Build Command: *(Leave blank)*.
+   - Output Directory: *(Leave blank)*.
+   - Click **Deploy**.
+3. Open the production link on your smartphone to test the full-height mobile video and multi-step collab form.

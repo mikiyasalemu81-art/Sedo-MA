@@ -2,13 +2,13 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Sedo Martial Art — Official Brand & Sponsorships</title>
-  <meta name="description" content="Official personal brand and sponsorship portal for Sedo Martial Art, Ethiopian MMA fighter and martial arts creator with 2.4M followers.">
+  <meta name="description" content="Official personal brand and commercial partnerships portal for Sedo Martial Art, Ethiopian MMA fighter and Taekwondo champion with 2.4M TikTok followers and 61.2M likes.">
 
-  <!-- Open Graph / Meta -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Sedo Martial Art — Official Brand & Sponsorships">
-  <meta property="og:description" content="Ethiopian MMA fighter. Taekwondo champion. Habesha King. Partnerships, sponsorships, and advertising collaborations.">
+  <meta property="og:description" content="Taekwondo champion. MMA fighter. I fight for Ethiopia. Direct partnerships and brand collaborations.">
   <meta property="og:image" content="assets/images/sedo-poster.webp">
   <meta property="og:type" content="website">
 
@@ -24,552 +24,930 @@
 </head>
 <body>
 
+  <!-- CUSTOM MOUSE CURSOR -->
+  <div id="custom-cursor" class="custom-cursor" aria-hidden="true"></div>
+
   <!-- 1. LOADING INTRO SCREEN -->
   <div id="intro-screen" class="intro-screen" aria-hidden="true">
     <div class="intro-content">
-      <span class="intro-wordmark">SEDO</span>
-      <div class="intro-line"></div>
+      <div class="intro-wordmark-wrapper">
+        <span class="intro-letter">S</span>
+        <span class="intro-letter">E</span>
+        <span class="intro-letter">D</span>
+        <span class="intro-letter">O</span>
+      </div>
+      <div class="intro-red-sweep"></div>
     </div>
   </div>
 
-  <!-- 2. HEADER -->
+  <!-- 2. FIXED HEADER -->
   <header id="site-header" class="site-header">
     <div class="header-container">
-      <a href="#hero" class="brand-logo" aria-label="Sedo Martial Art Home">
-        SEDO<span class="brand-dot">.</span>
+      
+      <!-- Brand Logo Mark & Name -->
+      <a href="#hero" class="brand-link" aria-label="Sedo Martial Art Home">
+        <div class="brand-avatar-box">
+          <img src="assets/images/sedo-poster.webp" alt="Sedo avatar" class="brand-avatar-img">
+        </div>
+        <span class="brand-wordmark">Sedo Martial Art</span>
       </a>
 
-      <!-- Desktop Nav -->
+      <!-- Desktop Center Navigation -->
       <nav class="desktop-nav" aria-label="Main Navigation">
         <ul class="nav-links">
-          <li><a href="#videos" class="nav-link" data-i18n="navVideos">Videos</a></li>
-          <li><a href="#photos" class="nav-link" data-i18n="navPhotos">Photos</a></li>
-          <li><a href="#about" class="nav-link" data-i18n="navAbout">About</a></li>
-          <li><a href="#services" class="nav-link" data-i18n="navServices">Services</a></li>
-          <li><a href="#collab" class="nav-link" data-i18n="navCollab">Collab</a></li>
+          <li><a href="#hero" class="nav-link active" data-nav="hero" data-i18n="navHome">Home</a></li>
+          <li><a href="#about" class="nav-link" data-nav="about" data-i18n="navAbout">About</a></li>
+          <li><a href="#services" class="nav-link" data-nav="services" data-i18n="navServices">Services</a></li>
+          <li><a href="#videos" class="nav-link" data-nav="videos" data-i18n="navVideos">Videos</a></li>
+          <li><a href="#photos" class="nav-link" data-nav="photos" data-i18n="navPhotos">Photos</a></li>
+          <li><a href="#collab" class="nav-link" data-nav="collab" data-i18n="navCollab">Collab</a></li>
         </ul>
+      </nav>
 
-        <!-- Language Selector -->
-        <div class="lang-selector-wrapper">
-          <label for="lang-select" class="visually-hidden">Language</label>
-          <select id="lang-select" class="lang-select" aria-label="Select Language">
+      <!-- Right Actions: TikTok Pill & Language Selector -->
+      <div class="header-right-actions">
+        <a href="https://www.tiktok.com/@sedomartialart3" target="_blank" rel="noopener noreferrer" class="tiktok-pill-btn" aria-label="TikTok @sedomartialart3">
+          <svg class="tiktok-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.85.12V9.4a6.33 6.33 0 0 0-.85-.06A6.34 6.34 0 0 0 3.14 15.7a6.34 6.34 0 0 0 6.34 6.34c3.5 0 6.34-2.84 6.34-6.34V8.4a8.28 8.28 0 0 0 4.77 1.5V6.45a4.83 4.83 0 0 1-1-.24z"/>
+          </svg>
+          <span class="tiktok-handle">@sedomartialart3</span>
+        </a>
+
+        <!-- Language Dropdown -->
+        <div class="lang-selector-wrap">
+          <label for="lang-select" class="visually-hidden">Select Language</label>
+          <select id="lang-select" class="lang-select-dropdown" aria-label="Select Language">
             <option value="en">English</option>
             <option value="am">አማርኛ</option>
             <option value="om">Afaan Oromo</option>
             <option value="ar">العربية</option>
           </select>
         </div>
-      </nav>
 
-      <!-- Mobile Menu Button -->
-      <button id="mobile-toggle" class="mobile-toggle" type="button" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Toggle navigation menu">
-        <span class="toggle-bar"></span>
-        <span class="toggle-bar"></span>
-      </button>
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-toggle" class="mobile-toggle-btn" type="button" aria-expanded="false" aria-controls="mobile-overlay" aria-label="Toggle navigation menu">
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+        </button>
+      </div>
+
     </div>
 
-    <!-- Mobile Drawer -->
-    <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
-      <div class="mobile-drawer-inner">
+    <!-- Mobile Full-screen Overlay -->
+    <div id="mobile-overlay" class="mobile-overlay" aria-hidden="true">
+      <div class="mobile-overlay-content">
         <nav class="mobile-nav" aria-label="Mobile Navigation">
           <ul class="mobile-nav-links">
-            <li><a href="#videos" class="mobile-nav-link" data-i18n="navVideos">Videos</a></li>
-            <li><a href="#photos" class="mobile-nav-link" data-i18n="navPhotos">Photos</a></li>
+            <li><a href="#hero" class="mobile-nav-link" data-i18n="navHome">Home</a></li>
             <li><a href="#about" class="mobile-nav-link" data-i18n="navAbout">About</a></li>
             <li><a href="#services" class="mobile-nav-link" data-i18n="navServices">Services</a></li>
+            <li><a href="#videos" class="mobile-nav-link" data-i18n="navVideos">Videos</a></li>
+            <li><a href="#photos" class="mobile-nav-link" data-i18n="navPhotos">Photos</a></li>
             <li><a href="#collab" class="mobile-nav-link" data-i18n="navCollab">Collab</a></li>
           </ul>
         </nav>
 
-        <div class="mobile-lang-block">
-          <label for="mobile-lang-select" class="mobile-lang-label" data-i18n="languageLabel">Language</label>
-          <select id="mobile-lang-select" class="lang-select mobile-select" aria-label="Select Language">
-            <option value="en">English</option>
-            <option value="am">አማርኛ</option>
-            <option value="om">Afaan Oromo</option>
-            <option value="ar">العربية</option>
-          </select>
+        <div class="mobile-extra-bar">
+          <div class="mobile-lang-wrap">
+            <label for="mobile-lang-select" class="mobile-lang-label" data-i18n="languageLabel">Language</label>
+            <select id="mobile-lang-select" class="lang-select-dropdown mobile-dropdown" aria-label="Select Language">
+              <option value="en">English</option>
+              <option value="am">አማርኛ</option>
+              <option value="om">Afaan Oromo</option>
+              <option value="ar">العربية</option>
+            </select>
+          </div>
+          <a href="https://www.tiktok.com/@sedomartialart3" target="_blank" rel="noopener noreferrer" class="tiktok-pill-btn mobile-tiktok">
+            <span>Follow @sedomartialart3</span>
+          </a>
         </div>
       </div>
     </div>
   </header>
 
   <main id="main-content">
-    <!-- 3. HERO SECTION -->
-    <section id="hero" class="hero-section" aria-labelledby="hero-title">
-      <div class="hero-vignette" aria-hidden="true"></div>
+    
+    <!-- 3. HERO (Full Screen: min-height 100svh) -->
+    <section id="hero" class="hero-section" aria-labelledby="hero-main-title">
+      
+      <!-- 3-Slide Background Carousel with Ken Burns drift -->
+      <div class="hero-carousel-track" id="hero-carousel" aria-hidden="true">
+        <div class="hero-slide active slide-poster" style="background-image: url('assets/images/sedo-poster.webp');"></div>
+        <div class="hero-slide slide-portrait" style="background-image: url('assets/images/sedo-portrait.webp');"></div>
+        <div class="hero-slide slide-portrait-tight" style="background-image: url('assets/images/sedo-portrait.webp');"></div>
+      </div>
+
+      <!-- Dark Red-Tinted Gradient Overlay -->
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <!-- Cursor-Following Red Spotlight (desktop) -->
+      <div id="hero-spotlight" class="hero-spotlight" aria-hidden="true"></div>
+
+      <!-- Carousel Navigation Arrows (Desktop) -->
+      <button type="button" class="carousel-arrow arrow-prev" id="carousel-prev" aria-label="Previous Slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button type="button" class="carousel-arrow arrow-next" id="carousel-next" aria-label="Next Slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <!-- Hero Centered Content Container -->
       <div class="hero-container">
-        
-        <!-- Left Column: Copy & Stats -->
-        <div class="hero-content reveal-item">
-          <h1 id="hero-title" class="hero-headline">
-            <span class="headline-primary" data-i18n="heroTitle">Sedo Martial Art</span>
-            <span class="headline-sub" data-i18n="heroSubtitle">I fight for Ethiopia!</span>
+        <div class="hero-content">
+
+          <!-- Pill Label & Status Badge Row -->
+          <div class="hero-badges-row">
+            <span class="hero-pill-label" data-i18n="heroPillLabel">Martial arts creator · Ethiopia</span>
+            <div id="hero-status-badge" class="hero-status-pill">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span id="status-badge-text" class="status-text">Training now</span>
+            </div>
+          </div>
+
+          <!-- Headline in large Bodoni Moda -->
+          <h1 id="hero-main-title" class="hero-headline">
+            <span class="headline-line-1">Sedo</span>
+            <span class="headline-line-2 gradient-text">Martial Art</span>
           </h1>
 
-          <p class="hero-tagline" data-i18n="heroTagline">MMA fighter. Taekwondo champion. Habesha King.</p>
+          <!-- Two-line Subtitle -->
+          <p class="hero-subtitle">
+            <span class="sub-line-1" data-i18n="heroSub1">Taekwondo champion. MMA fighter.</span>
+            <span class="sub-line-2" data-i18n="heroSub2">I fight for Ethiopia.</span>
+          </p>
 
-          <!-- TikTok Stats -->
-          <div class="hero-stats">
-            <a href="https://www.tiktok.com/@sedomartialart3" target="_blank" rel="noopener noreferrer" class="stat-item" aria-label="2.4 Million TikTok Followers">
-              <span class="stat-number">2.4M</span>
-              <span class="stat-label" data-i18n="statFollowers">followers</span>
+          <!-- Magnetic Action Buttons -->
+          <div class="hero-cta-group">
+            <a href="https://www.tiktok.com/@sedomartialart3" target="_blank" rel="noopener noreferrer" class="btn btn-solid-white magnetic-btn" data-i18n="btnWatchTikTok">
+              Watch on TikTok
             </a>
-            <div class="stat-divider" aria-hidden="true"></div>
-            <a href="https://www.tiktok.com/@sedomartialart3" target="_blank" rel="noopener noreferrer" class="stat-item" aria-label="61.2 Million TikTok Likes">
-              <span class="stat-number">61.2M</span>
-              <span class="stat-label" data-i18n="statLikes">likes</span>
+            <a href="#collab" class="btn btn-outline-bone magnetic-btn" data-i18n="btnWorkWithSedo">
+              Work with Sedo
             </a>
           </div>
 
-          <!-- Hero Action -->
-          <div class="hero-actions">
-            <a href="https://www.tiktok.com/@sedomartialart3" target="_blank" rel="noopener noreferrer" class="btn btn-tiktok" data-i18n="btnFollowTikTok">
-              Follow on TikTok @sedomartialart3
-            </a>
+          <!-- Animated Counting Stats -->
+          <div class="hero-stats-row">
+            <div class="stat-box">
+              <span class="stat-number" id="counter-followers" data-target="2.4" data-suffix="M">0M</span>
+              <span class="stat-caption" data-i18n="statFollowers">Followers</span>
+            </div>
+            <div class="stat-sep" aria-hidden="true">·</div>
+            <div class="stat-box">
+              <span class="stat-number" id="counter-likes" data-target="61.2" data-suffix="M">0M</span>
+              <span class="stat-caption" data-i18n="statLikes">Likes</span>
+            </div>
+            <div class="stat-sep" aria-hidden="true">·</div>
+            <div class="stat-box">
+              <span class="stat-number" id="counter-campaigns" data-target="15" data-suffix="+">0+</span>
+              <span class="stat-caption" data-i18n="statCampaigns">Brand deals and campaigns: [NUMBER]</span>
+            </div>
           </div>
+
+        </div>
+      </div>
+
+      <!-- Carousel Pagination Dots -->
+      <div class="carousel-dots-wrap" id="carousel-dots" role="tablist" aria-label="Hero Carousel Dots">
+        <button type="button" class="carousel-dot active" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+        <button type="button" class="carousel-dot" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+        <button type="button" class="carousel-dot" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+      </div>
+
+    </section>
+
+    <!-- BRAND LOGO MARQUEE (Idea 14) -->
+    <section class="partners-marquee-section" aria-label="Brand Partnerships">
+      <div class="marquee-track" id="partners-marquee-track">
+        <!-- If assets/partners/ is empty, placeholder strip renders cleanly -->
+        <div class="marquee-content">
+          <span class="partner-placeholder-item" data-i18n="partnerPlaceholder">Partner logos coming soon · Brand Partnerships · Official Sponsors · Combat Promotions · </span>
+          <span class="partner-placeholder-item" data-i18n="partnerPlaceholder">Partner logos coming soon · Brand Partnerships · Official Sponsors · Combat Promotions · </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. ABOUT SECTION ("The career") -->
+    <section id="about" class="about-section clip-wipe-section" aria-labelledby="about-section-title">
+      <div class="section-container">
+        
+        <h2 id="about-section-title" class="section-heading split-letter-heading" data-i18n="aboutHeading">The career</h2>
+
+        <div class="about-grid">
+          
+          <!-- Left: Portrait with Parallax & Offset Red Frame (Idea 13) -->
+          <div class="about-visual-col">
+            <div class="portrait-parallax-box" id="portrait-parallax-wrap">
+              <div class="parallax-red-frame" aria-hidden="true"></div>
+              <img 
+                src="assets/images/sedo-portrait.webp" 
+                alt="Sedo Martial Art portrait" 
+                class="portrait-img" 
+                id="portrait-parallax-img"
+                loading="lazy" 
+                width="520" 
+                height="680"
+              >
+            </div>
+
+            <!-- Press Kit Download Button (Idea 18) -->
+            <div class="press-kit-action">
+              <a 
+                href="assets/press/sedo-press-kit.pdf" 
+                download 
+                id="press-kit-btn" 
+                class="btn btn-outline-bone press-kit-btn"
+                data-i18n="btnPressKit"
+              >
+                Download press kit
+              </a>
+              <span id="press-kit-note" class="press-kit-fallback-note" style="display: none;" data-i18n="pressKitComingSoon">
+                Press kit coming soon
+              </span>
+            </div>
+          </div>
+
+          <!-- Right: Biography, Timeline (Idea 9), Pull Quote -->
+          <div class="about-info-col">
+            
+            <p class="about-bio-paragraph text-fade-in" data-i18n="aboutBio">
+              Born and rooted in Ethiopian soil, Sedo embodies the relentless spirit of African combat arts. Competing actively across elite Taekwondo and MMA stages from [YEAR] to [YEAR], he earned [TITLE] honors and secured [WIN] decisive career finishes. Celebrated internationally as the Habesha King, Sedo connects pure athletic discipline with an engaged audience of over 2.4 million loyal followers.
+            </p>
+
+            <!-- Pull Quote in Bodoni Moda Italic -->
+            <blockquote class="about-pull-quote text-fade-in" data-i18n="pullQuote">
+              Power. Pride. Discipline.
+            </blockquote>
+
+            <!-- Career Timeline with Scroll-Driven Red Progress Line (Idea 9) -->
+            <div class="timeline-block">
+              <div class="timeline-progress-rail" aria-hidden="true">
+                <div class="timeline-progress-fill" id="timeline-progress-line"></div>
+              </div>
+
+              <div class="timeline-milestones" id="timeline-milestones-list">
+                
+                <div class="milestone-item" data-year="[YEAR]">
+                  <div class="milestone-dot" aria-hidden="true"></div>
+                  <div class="milestone-body">
+                    <span class="milestone-year">[YEAR]</span>
+                    <h3 class="milestone-title" data-i18n="timelineItem1">[TITLE] National Taekwondo Championship</h3>
+                    <p class="milestone-desc" data-i18n="timelineItem1Desc">Gold medal finish and dominant national tournament performance.</p>
+                  </div>
+                </div>
+
+                <div class="milestone-item" data-year="[YEAR]">
+                  <div class="milestone-dot" aria-hidden="true"></div>
+                  <div class="milestone-body">
+                    <span class="milestone-year">[YEAR]</span>
+                    <h3 class="milestone-title" data-i18n="timelineItem2">Professional MMA Debut with [WIN] First-Round Victory</h3>
+                    <p class="milestone-desc" data-i18n="timelineItem2Desc">Decisive first-round stoppage displaying explosive striking acumen.</p>
+                  </div>
+                </div>
+
+                <div class="milestone-item" data-year="[YEAR]">
+                  <div class="milestone-dot" aria-hidden="true"></div>
+                  <div class="milestone-body">
+                    <span class="milestone-year">[YEAR]</span>
+                    <h3 class="milestone-title" data-i18n="timelineItem3">Continental Combat Showcase and [TITLE] Contender Match</h3>
+                    <p class="milestone-desc" data-i18n="timelineItem3Desc">Headline main-event showcase representing Ethiopia on the continental stage.</p>
+                  </div>
+                </div>
+
+                <div class="milestone-item" data-year="[YEAR]">
+                  <div class="milestone-dot" aria-hidden="true"></div>
+                  <div class="milestone-body">
+                    <span class="milestone-year">[YEAR]</span>
+                    <h3 class="milestone-title" data-i18n="timelineItem4">Global Digital Reach Exceeds 2M Supporters Worldwide</h3>
+                    <p class="milestone-desc" data-i18n="timelineItem4Desc">Rapid viral growth and international brand collaboration launch.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
         </div>
 
-        <!-- Right Column: 3D Tilt Poster Card -->
-        <div class="hero-poster-wrapper reveal-item">
-          <div class="poster-3d-card" id="hero-poster-card">
-            <div class="poster-shine" aria-hidden="true"></div>
-            <img 
-              src="assets/images/sedo-poster.webp" 
-              alt="Sedo Martial Art MMA poster" 
-              class="poster-image"
-              width="600"
-              height="750"
-            >
+      </div>
+    </section>
+
+    <!-- 5. SERVICES SECTION ("Work with Sedo" Fight Card - Idea 10) -->
+    <section id="services" class="services-section clip-wipe-section" aria-labelledby="services-section-title">
+      <div class="section-container">
+        
+        <div class="services-intro-row">
+          <h2 id="services-section-title" class="section-heading split-letter-heading" data-i18n="servicesHeading">Work with Sedo</h2>
+          <p class="services-lead text-fade-in" data-i18n="servicesLead">
+            Curated partnership opportunities for world-class athletic labels, commercial enterprises, and ambitious regional brands.
+          </p>
+        </div>
+
+        <!-- Fight Card Layout (Idea 10) -->
+        <div class="fight-card-list">
+          
+          <div class="fight-card-row">
+            <div class="fight-card-main">
+              <h3 class="fight-service-name" data-i18n="service1Title">Paid advertisements</h3>
+              <p class="fight-service-desc" data-i18n="service1Desc">High-impact sponsored video integrations woven into authentic training sessions and lifestyle content.</p>
+            </div>
+            <div class="fight-card-action">
+              <a href="#collab" class="fight-book-link" data-i18n="btnBookService">Inquire</a>
+            </div>
+            <div class="fight-sweep-line" aria-hidden="true"></div>
+          </div>
+
+          <div class="fight-card-row">
+            <div class="fight-card-main">
+              <h3 class="fight-service-name" data-i18n="service2Title">Brand sponsorships</h3>
+              <p class="fight-service-desc" data-i18n="service2Desc">Comprehensive multi-platform campaign alignments connecting your enterprise with millions of devoted supporters.</p>
+            </div>
+            <div class="fight-card-action">
+              <a href="#collab" class="fight-book-link" data-i18n="btnBookService">Inquire</a>
+            </div>
+            <div class="fight-sweep-line" aria-hidden="true"></div>
+          </div>
+
+          <div class="fight-card-row">
+            <div class="fight-card-main">
+              <h3 class="fight-service-name" data-i18n="service3Title">Product promotion</h3>
+              <p class="fight-service-desc" data-i18n="service3Desc">Dedicated demonstrations, combat apparel showcases, and equipment reviews featuring trusted creator endorsements.</p>
+            </div>
+            <div class="fight-card-action">
+              <a href="#collab" class="fight-book-link" data-i18n="btnBookService">Inquire</a>
+            </div>
+            <div class="fight-sweep-line" aria-hidden="true"></div>
+          </div>
+
+          <div class="fight-card-row">
+            <div class="fight-card-main">
+              <h3 class="fight-service-name" data-i18n="service4Title">Social media campaigns</h3>
+              <p class="fight-service-desc" data-i18n="service4Desc">Multi-tier viral rollouts optimized for high watch duration, organic sharing, and community engagement.</p>
+            </div>
+            <div class="fight-card-action">
+              <a href="#collab" class="fight-book-link" data-i18n="btnBookService">Inquire</a>
+            </div>
+            <div class="fight-sweep-line" aria-hidden="true"></div>
+          </div>
+
+          <div class="fight-card-row">
+            <div class="fight-card-main">
+              <h3 class="fight-service-name" data-i18n="service5Title">Event appearances</h3>
+              <p class="fight-service-desc" data-i18n="service5Desc">VIP guest attendance, motivational masterclasses, and ceremonial appearances for corporate and sports events.</p>
+            </div>
+            <div class="fight-card-action">
+              <a href="#collab" class="fight-book-link" data-i18n="btnBookService">Inquire</a>
+            </div>
+            <div class="fight-sweep-line" aria-hidden="true"></div>
+          </div>
+
+          <div class="fight-card-row">
+            <div class="fight-card-main">
+              <h3 class="fight-service-name" data-i18n="service6Title">Fight-night promotions</h3>
+              <p class="fight-service-desc" data-i18n="service6Desc">Exclusive weigh-in and fight-week brand placement on official gear, banners, and digital coverage.</p>
+            </div>
+            <div class="fight-card-action">
+              <a href="#collab" class="fight-book-link" data-i18n="btnBookService">Inquire</a>
+            </div>
+            <div class="fight-sweep-line" aria-hidden="true"></div>
+          </div>
+
+          <div class="fight-card-row">
+            <div class="fight-card-main">
+              <h3 class="fight-service-name" data-i18n="service7Title">Business content creation</h3>
+              <p class="fight-service-desc" data-i18n="service7Desc">Custom creative media filmed specifically for commercial syndication and distribution across your company channels.</p>
+            </div>
+            <div class="fight-card-action">
+              <a href="#collab" class="fight-book-link" data-i18n="btnBookService">Inquire</a>
+            </div>
+            <div class="fight-sweep-line" aria-hidden="true"></div>
+          </div>
+
+          <div class="fight-card-row">
+            <div class="fight-card-main">
+              <h3 class="fight-service-name" data-i18n="service8Title">Ambassador partnerships</h3>
+              <p class="fight-service-desc" data-i18n="service8Desc">Long-term exclusive representation embodying discipline, cultural strength, and authentic presence.</p>
+            </div>
+            <div class="fight-card-action">
+              <a href="#collab" class="fight-book-link" data-i18n="btnBookService">Inquire</a>
+            </div>
+            <div class="fight-sweep-line" aria-hidden="true"></div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SLIDER (Idea 19 - Placeholders Only) -->
+    <section class="testimonials-section clip-wipe-section" aria-labelledby="testimonials-title">
+      <div class="section-container">
+        
+        <h2 id="testimonials-title" class="section-heading split-letter-heading" data-i18n="testimonialsHeading">Partner Words</h2>
+
+        <div class="testimonials-slider-box" id="testimonials-slider">
+          <div class="testimonial-slide active">
+            <blockquote class="testimonial-quote">
+              "[CLIENT QUOTE]"
+            </blockquote>
+            <cite class="testimonial-author">[Client name, Brand]</cite>
+          </div>
+          <div class="testimonial-slide">
+            <blockquote class="testimonial-quote">
+              "[CLIENT QUOTE]"
+            </blockquote>
+            <cite class="testimonial-author">[Client name, Brand]</cite>
+          </div>
+          <div class="testimonial-slide">
+            <blockquote class="testimonial-quote">
+              "[CLIENT QUOTE]"
+            </blockquote>
+            <cite class="testimonial-author">[Client name, Brand]</cite>
+          </div>
+
+          <div class="testimonial-nav-dots" id="testimonial-dots">
+            <button type="button" class="t-dot active" aria-label="Testimonial 1"></button>
+            <button type="button" class="t-dot" aria-label="Testimonial 2"></button>
+            <button type="button" class="t-dot" aria-label="Testimonial 3"></button>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- 4. ABOUT SECTION ("The career") -->
-    <section id="about" class="about-section" aria-labelledby="about-title">
-      <div class="section-container">
-        <h2 id="about-title" class="section-heading reveal-item" data-i18n="aboutHeading">The career</h2>
+    <!-- 6. PHOTOS (Scroll-Driven Horizontal Gallery - Idea 5) -->
+    <section id="photos" class="photos-section clip-wipe-section" aria-labelledby="photos-section-title">
+      <div class="photos-sticky-container">
+        
+        <div class="section-container photos-header-wrap">
+          <h2 id="photos-section-title" class="section-heading split-letter-heading" data-i18n="photosHeading">Photos</h2>
+          <p class="photos-hint" data-i18n="photosHint">Scroll to view gallery</p>
+        </div>
 
-        <div class="about-grid">
-          <!-- Left: Portrait with offset red frame -->
-          <div class="about-media reveal-item">
-            <div class="portrait-frame-container">
-              <div class="portrait-offset-frame" aria-hidden="true"></div>
-              <img 
-                src="assets/images/sedo-portrait.webp" 
-                alt="Sedo Martial Art in white formal jacket" 
-                class="portrait-image"
-                loading="lazy"
-                width="500"
-                height="650"
-              >
+        <div class="horizontal-gallery-window" id="gallery-window">
+          <div class="horizontal-gallery-track" id="gallery-track">
+            
+            <!-- Photo 1: Portrait -->
+            <div class="gallery-card" data-index="0" role="button" tabindex="0" aria-label="View Sedo Martial Art Portrait">
+              <div class="gallery-card-img-wrap">
+                <img 
+                  src="assets/images/sedo-portrait.webp" 
+                  alt="Sedo Martial Art portrait in white jacket" 
+                  class="gallery-card-img"
+                  loading="lazy"
+                  width="700"
+                  height="900"
+                >
+              </div>
+              <div class="gallery-card-caption">
+                <span class="caption-title">Habesha King</span>
+                <span class="caption-sub">Formal Portrait</span>
+              </div>
             </div>
-          </div>
 
-          <!-- Right: Biography, Timeline, Pull Quote -->
-          <div class="about-content reveal-item">
-            <div class="biography-block">
-              <p class="about-paragraph" data-i18n="aboutBio">
-                Rooted in fierce Ethiopian heritage, Sedo stands as a premier mixed martial artist and taekwondo competitor who represents the unstoppable fighting spirit of his homeland. Over the course of [YEAR] to [YEAR], he captured [TITLE] in regional competitions and earned [WIN] defining victories across championship mats. Known globally as the Habesha King, Sedo blends elite striking, discipline, and authentic presence that commands an audience of millions.
-              </p>
-            </div>
-
-            <!-- Pull Quote -->
-            <blockquote class="pull-quote" data-i18n="pullQuote">
-              Power. Pride. Discipline.
-            </blockquote>
-
-            <!-- Timeline -->
-            <div class="timeline-container">
-              <h3 class="timeline-heading" data-i18n="timelineHeading">Career Milestones</h3>
-              <div class="horizontal-timeline">
-                <div class="timeline-item">
-                  <span class="timeline-year">[YEAR]</span>
-                  <span class="timeline-text" data-i18n="timelineItem1">[TITLE] National Taekwondo Championship</span>
-                </div>
-                <div class="timeline-item">
-                  <span class="timeline-year">[YEAR]</span>
-                  <span class="timeline-text" data-i18n="timelineItem2">Professional MMA Debut with [WIN] First-Round Victory</span>
-                </div>
-                <div class="timeline-item">
-                  <span class="timeline-year">[YEAR]</span>
-                  <span class="timeline-text" data-i18n="timelineItem3">Continental Combat Showcase and [TITLE] Contender Match</span>
-                </div>
-                <div class="timeline-item">
-                  <span class="timeline-year">[YEAR]</span>
-                  <span class="timeline-text" data-i18n="timelineItem4">Global Digital Reach Exceeds 2M Supporters Worldwide</span>
-                </div>
+            <!-- Photo 2: Poster -->
+            <div class="gallery-card" data-index="1" role="button" tabindex="0" aria-label="View Sedo Martial Art MMA Poster">
+              <div class="gallery-card-img-wrap">
+                <img 
+                  src="assets/images/sedo-poster.webp" 
+                  alt="Sedo Martial Art MMA Poster" 
+                  class="gallery-card-img"
+                  loading="lazy"
+                  width="700"
+                  height="900"
+                >
+              </div>
+              <div class="gallery-card-caption">
+                <span class="caption-title">I Fight For Ethiopia</span>
+                <span class="caption-sub">Combat Poster</span>
               </div>
             </div>
 
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- 5. SERVICES SECTION ("Work with Sedo") -->
-    <section id="services" class="services-section" aria-labelledby="services-title">
-      <div class="section-container">
-        <div class="services-header reveal-item">
-          <h2 id="services-title" class="section-heading" data-i18n="servicesHeading">Work with Sedo</h2>
-          <p class="services-intro" data-i18n="servicesIntro">
-            Direct collaboration opportunities for premium global brands, athletic labels, event promotions, and ambitious regional enterprises.
+    <!-- 7. VIDEO SECTION ("Watch the latest" - Full-Height TikTok Panel - Idea 11) -->
+    <section id="videos" class="video-section clip-wipe-section" aria-labelledby="video-section-title">
+      <div class="video-section-inner">
+        
+        <!-- Desktop Left Side: Headline & Description -->
+        <div class="video-side-col video-left-col">
+          <h2 id="video-section-title" class="section-heading split-letter-heading" data-i18n="videoHeading">Watch the latest</h2>
+          <p class="video-side-desc text-fade-in" data-i18n="videoDesc">
+            Direct from the gym floor to the arena. Witness explosive martial arts masterclasses, power conditioning, and combat preparation followed by over 2.4 million fans.
           </p>
         </div>
 
-        <div class="services-list reveal-item">
+        <!-- Center: Full-Height 9:16 Vertical Video Panel (TikTok Feed Style) -->
+        <div class="video-center-panel" id="video-panel-wrapper">
+          <a 
+            href="https://www.tiktok.com/@sedomartialart3" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="video-card-anchor" 
+            aria-label="Watch Sedo Martial Art highlight video on TikTok"
+          >
+            <video 
+              id="sedo-main-video" 
+              class="full-vertical-video" 
+              preload="none" 
+              muted 
+              loop 
+              playsinline
+              data-src="assets/video/sedo-highlight.mp4"
+            ></video>
+
+            <!-- Video Overlays -->
+            <div class="video-top-tag">
+              <span class="video-brand-label" data-i18n="videoBrand">Sedo Martial Art</span>
+            </div>
+
+            <div class="video-bottom-gradient">
+              <p class="video-motto-label" data-i18n="videoMotto">I fight for Ethiopia!</p>
+              <div class="tiktok-pill-badge">
+                <svg class="tiktok-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.85.12V9.4a6.33 6.33 0 0 0-.85-.06A6.34 6.34 0 0 0 3.14 15.7a6.34 6.34 0 0 0 6.34 6.34c3.5 0 6.34-2.84 6.34-6.34V8.4a8.28 8.28 0 0 0 4.77 1.5V6.45a4.83 4.83 0 0 1-1-.24z"/>
+                </svg>
+                <span data-i18n="btnWatchTikTok">Watch on TikTok</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Mobile Tap-to-Unmute Button -->
+          <button type="button" id="mobile-unmute-btn" class="mobile-sound-btn" aria-label="Toggle sound">
+            <span id="sound-icon-muted">🔇</span>
+            <span id="sound-icon-unmuted" style="display: none;">🔊</span>
+          </button>
+        </div>
+
+        <!-- Desktop Right Side: TikTok CTA Button -->
+        <div class="video-side-col video-right-col">
+          <div class="video-cta-block">
+            <span class="video-cta-hint" data-i18n="videoCtaHint">Stay updated with daily training:</span>
+            <a href="https://www.tiktok.com/@sedomartialart3" target="_blank" rel="noopener noreferrer" class="btn btn-solid-white magnetic-btn" data-i18n="btnFollowTikTokHandle">
+              Follow on TikTok @sedomartialart3
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. COLLAB FORM (6 Steps Professional Multi-Step - Idea 15 & 16) -->
+    <section id="collab" class="collab-section clip-wipe-section" aria-labelledby="collab-section-title">
+      <div class="section-container collab-wrapper">
+        
+        <div class="collab-intro-block">
+          <h2 id="collab-section-title" class="section-heading split-letter-heading" data-i18n="collabHeading">Brand Collaboration</h2>
+          <p class="collab-subhead text-fade-in" data-i18n="collabSubhead">
+            Submit your commercial proposal directly to Sedo's official team for brand activations, sponsorships, and campaigns.
+          </p>
+        </div>
+
+        <div class="collab-form-box">
           
-          <div class="service-item">
-            <div class="service-name-wrap">
-              <h3 class="service-name" data-i18n="service1Title">Paid advertisements</h3>
-              <span class="service-underline" aria-hidden="true"></span>
-            </div>
-            <p class="service-desc" data-i18n="service1Desc">High-impact sponsored video features seamlessly integrated into authentic training and lifestyle content.</p>
-          </div>
-
-          <div class="service-item">
-            <div class="service-name-wrap">
-              <h3 class="service-name" data-i18n="service2Title">Brand sponsorships</h3>
-              <span class="service-underline" aria-hidden="true"></span>
-            </div>
-            <p class="service-desc" data-i18n="service2Desc">Comprehensive multi-platform campaign alignments connecting your enterprise directly with millions of loyal fans.</p>
-          </div>
-
-          <div class="service-item">
-            <div class="service-name-wrap">
-              <h3 class="service-name" data-i18n="service3Title">Product promotion</h3>
-              <span class="service-underline" aria-hidden="true"></span>
-            </div>
-            <p class="service-desc" data-i18n="service3Desc">Dedicated demonstrations, apparel showcases, and equipment reviews featuring genuine creator endorsement.</p>
-          </div>
-
-          <div class="service-item">
-            <div class="service-name-wrap">
-              <h3 class="service-name" data-i18n="service4Title">Social media campaigns</h3>
-              <span class="service-underline" aria-hidden="true"></span>
-            </div>
-            <p class="service-desc" data-i18n="service4Desc">Multi-tier viral launches crafted for high watch time, repeat engagement, and measurable audience conversion.</p>
-          </div>
-
-          <div class="service-item">
-            <div class="service-name-wrap">
-              <h3 class="service-name" data-i18n="service5Title">Event appearances</h3>
-              <span class="service-underline" aria-hidden="true"></span>
-            </div>
-            <p class="service-desc" data-i18n="service5Desc">VIP guest attendance, masterclass workshops, and ceremonial appearances for corporate and athletic gatherings.</p>
-          </div>
-
-          <div class="service-item">
-            <div class="service-name-wrap">
-              <h3 class="service-name" data-i18n="service6Title">Fight-night promotions</h3>
-              <span class="service-underline" aria-hidden="true"></span>
-            </div>
-            <p class="service-desc" data-i18n="service6Desc">Exclusive weigh-in and fight week brand placement across combat gear, banners, and digital coverage.</p>
-          </div>
-
-          <div class="service-item">
-            <div class="service-name-wrap">
-              <h3 class="service-name" data-i18n="service7Title">Business content creation</h3>
-              <span class="service-underline" aria-hidden="true"></span>
-            </div>
-            <p class="service-desc" data-i18n="service7Desc">Custom creative assets filmed on location specifically tailored for commercial distribution on your company channels.</p>
-          </div>
-
-          <div class="service-item">
-            <div class="service-name-wrap">
-              <h3 class="service-name" data-i18n="service8Title">Ambassador partnerships</h3>
-              <span class="service-underline" aria-hidden="true"></span>
-            </div>
-            <p class="service-desc" data-i18n="service8Desc">Long-term exclusive representation embodying strength, integrity, and cultural excellence for your organization.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. PHOTOS SECTION -->
-    <section id="photos" class="photos-section" aria-labelledby="photos-title">
-      <div class="section-container">
-        <h2 id="photos-title" class="section-heading reveal-item" data-i18n="photosHeading">Photos</h2>
-
-        <div class="gallery-grid">
-          <!-- Gallery Item 1 -->
-          <div class="gallery-item reveal-item" data-index="0" role="button" tabindex="0" aria-label="Open photo: Sedo Martial Art portrait">
-            <div class="gallery-image-wrapper">
-              <img 
-                src="assets/images/sedo-portrait.webp" 
-                alt="Sedo Martial Art portrait in white suit" 
-                class="gallery-image"
-                loading="lazy"
-                width="600"
-                height="800"
-              >
+          <!-- Progress Header (Idea 15) -->
+          <div class="collab-progress-bar-row">
+            <span id="collab-step-label" class="step-indicator-text" data-i18n="stepCounter">Step 1 of 6</span>
+            <div class="collab-progress-rail" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="6" id="form-progress-bar">
+              <div class="collab-progress-fill" style="width: 16.66%;"></div>
             </div>
           </div>
 
-          <!-- Gallery Item 2 (offset vertically on desktop) -->
-          <div class="gallery-item gallery-item-offset reveal-item" data-index="1" role="button" tabindex="0" aria-label="Open photo: Sedo Martial Art MMA poster">
-            <div class="gallery-image-wrapper">
-              <img 
-                src="assets/images/sedo-poster.webp" 
-                alt="Sedo Martial Art MMA poster" 
-                class="gallery-image"
-                loading="lazy"
-                width="600"
-                height="800"
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. COLLAB FORM SECTION -->
-    <section id="collab" class="collab-section" aria-labelledby="collab-title">
-      <div class="section-container collab-container">
-        <div class="collab-header reveal-item">
-          <h2 id="collab-title" class="section-heading" data-i18n="collabHeading">Brand Collaboration</h2>
-          <p class="collab-subhead" data-i18n="collabSubhead">Submit your brand proposal directly to Sedo's official management.</p>
-        </div>
-
-        <div class="collab-card reveal-item">
-          <!-- Progress bar & step label -->
-          <div class="collab-progress-header">
-            <span id="step-counter" class="step-counter" data-i18n="stepCounter">Step 1 of 4</span>
-            <div class="progress-track" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" id="collab-progress-bar">
-              <div class="progress-fill" style="width: 25%;"></div>
-            </div>
-          </div>
-
-          <!-- Multi-step Form -->
-          <form id="collab-form" class="collab-form" novalidate>
+          <!-- Multi-Step Form -->
+          <form id="collab-multistep-form" class="multistep-form" novalidate>
             
-            <!-- Step 1: Full Name -->
-            <div class="form-step active" data-step="1">
-              <label for="step-fullname" class="step-label" data-i18n="labelStep1">What is your full name?</label>
-              <input 
-                type="text" 
-                id="step-fullname" 
-                name="fullname" 
-                class="form-input" 
-                placeholder="e.g. Samuel Bekele"
-                data-i18n-placeholder="placeholderStep1"
-                required
-                autocomplete="name"
-              >
-              <span class="field-error" id="error-step1" aria-live="polite"></span>
+            <!-- STEP 1: ABOUT YOU -->
+            <div class="form-step-pane active" data-step="1">
+              <p class="step-intro-note" data-i18n="step1Intro">Tell us who is reaching out.</p>
+              
+              <div class="input-field-group">
+                <label for="field-name" class="field-label" data-i18n="labelName">Full Name *</label>
+                <input type="text" id="field-name" name="name" class="field-input" placeholder="e.g. Samuel Bekele" required autocomplete="name">
+                <span class="inline-field-error" id="err-name" aria-live="polite"></span>
+              </div>
+
+              <div class="input-field-group">
+                <label for="field-email" class="field-label" data-i18n="labelEmail">Email Address *</label>
+                <input type="email" id="field-email" name="email" class="field-input" placeholder="name@company.com" required autocomplete="email">
+                <span class="inline-field-error" id="err-email" aria-live="polite"></span>
+              </div>
+
+              <div class="input-field-group">
+                <label for="field-phone" class="field-label" data-i18n="labelPhone">Phone Number *</label>
+                <input type="tel" id="field-phone" name="phone" class="field-input" placeholder="+251 91 123 4567 or 0911234567" required autocomplete="tel">
+                <span class="inline-field-error" id="err-phone" aria-live="polite"></span>
+              </div>
+
+              <div class="input-field-group">
+                <label for="field-contact-method" class="field-label" data-i18n="labelContactMethod">Preferred Contact Channel *</label>
+                <select id="field-contact-method" name="contactMethod" class="field-select" required>
+                  <option value="Telegram">Telegram (@Donkahan03)</option>
+                  <option value="Phone">Phone Call</option>
+                  <option value="Email">Email</option>
+                </select>
+              </div>
             </div>
 
-            <!-- Step 2: Phone Number -->
-            <div class="form-step" data-step="2">
-              <label for="step-phone" class="step-label" data-i18n="labelStep2">What is your phone number?</label>
-              <input 
-                type="tel" 
-                id="step-phone" 
-                name="phone" 
-                class="form-input" 
-                placeholder="e.g. +251 91 123 4567 or 0911234567"
-                data-i18n-placeholder="placeholderStep2"
-                required
-                autocomplete="tel"
-              >
-              <span class="field-error" id="error-step2" aria-live="polite"></span>
+            <!-- STEP 2: YOUR BUSINESS -->
+            <div class="form-step-pane" data-step="2">
+              <p class="step-intro-note" data-i18n="step2Intro">Tell us about your brand or enterprise.</p>
+
+              <div class="input-field-group">
+                <label for="field-brand" class="field-label" data-i18n="labelBrand">Brand or Business Name *</label>
+                <input type="text" id="field-brand" name="brand" class="field-input" placeholder="e.g. Habesha Athletics Co." required>
+                <span class="inline-field-error" id="err-brand" aria-live="polite"></span>
+              </div>
+
+              <div class="input-field-group">
+                <label for="field-business-type" class="field-label" data-i18n="labelBusinessType">Business Category *</label>
+                <select id="field-business-type" name="businessType" class="field-select" required>
+                  <option value="Health and fitness">Health and fitness</option>
+                  <option value="Retail">Retail</option>
+                  <option value="Food and beverage">Food and beverage</option>
+                  <option value="Technology">Technology</option>
+                  <option value="Hospitality">Hospitality</option>
+                  <option value="Education">Education</option>
+                  <option value="Fashion">Fashion</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="input-field-group">
+                <label for="field-location" class="field-label" data-i18n="labelLocation">City or Country *</label>
+                <input type="text" id="field-location" name="location" class="field-input" placeholder="e.g. Addis Ababa, Ethiopia" required>
+                <span class="inline-field-error" id="err-location" aria-live="polite"></span>
+              </div>
+
+              <div class="input-field-group">
+                <label for="field-website" class="field-label" data-i18n="labelWebsite">Website or Social Link (Optional)</label>
+                <input type="url" id="field-website" name="website" class="field-input" placeholder="https://instagram.com/yourbrand">
+              </div>
             </div>
 
-            <!-- Step 3: Brand or Business Name -->
-            <div class="form-step" data-step="3">
-              <label for="step-brand" class="step-label" data-i18n="labelStep3">What is your brand or business name?</label>
-              <input 
-                type="text" 
-                id="step-brand" 
-                name="brand" 
-                class="form-input" 
-                placeholder="e.g. Habesha Athletics Ltd."
-                data-i18n-placeholder="placeholderStep3"
-                required
-                autocomplete="organization"
-              >
-              <span class="field-error" id="error-step3" aria-live="polite"></span>
+            <!-- STEP 3: THE COLLABORATION (Icon Cards - Idea 16) -->
+            <div class="form-step-pane" data-step="3">
+              <p class="step-intro-note" data-i18n="step3Intro">Select one or more collaboration models.</p>
+
+              <div class="collab-card-grid">
+                
+                <label class="collab-choice-card">
+                  <input type="checkbox" name="collabTypes" value="Paid advertisement" class="collab-checkbox">
+                  <div class="choice-card-body">
+                    <span class="choice-icon">📢</span>
+                    <span class="choice-title" data-i18n="service1Title">Paid advertisement</span>
+                  </div>
+                </label>
+
+                <label class="collab-choice-card">
+                  <input type="checkbox" name="collabTypes" value="Sponsorship" class="collab-checkbox">
+                  <div class="choice-card-body">
+                    <span class="choice-icon">🏆</span>
+                    <span class="choice-title" data-i18n="service2Title">Sponsorship</span>
+                  </div>
+                </label>
+
+                <label class="collab-choice-card">
+                  <input type="checkbox" name="collabTypes" value="Product promotion" class="collab-checkbox">
+                  <div class="choice-card-body">
+                    <span class="choice-icon">🥊</span>
+                    <span class="choice-title" data-i18n="service3Title">Product promotion</span>
+                  </div>
+                </label>
+
+                <label class="collab-choice-card">
+                  <input type="checkbox" name="collabTypes" value="Event appearance" class="collab-checkbox">
+                  <div class="choice-card-body">
+                    <span class="choice-icon">🌟</span>
+                    <span class="choice-title" data-i18n="service5Title">Event appearance</span>
+                  </div>
+                </label>
+
+                <label class="collab-choice-card">
+                  <input type="checkbox" name="collabTypes" value="Ambassador partnership" class="collab-checkbox">
+                  <div class="choice-card-body">
+                    <span class="choice-icon">🤝</span>
+                    <span class="choice-title" data-i18n="service8Title">Ambassador partnership</span>
+                  </div>
+                </label>
+
+                <label class="collab-choice-card">
+                  <input type="checkbox" name="collabTypes" value="Other" class="collab-checkbox">
+                  <div class="choice-card-body">
+                    <span class="choice-icon">⚡</span>
+                    <span class="choice-title" data-i18n="labelOther">Other</span>
+                  </div>
+                </label>
+
+              </div>
+              <span class="inline-field-error" id="err-collab-types" aria-live="polite"></span>
+
+              <div class="grid-two-inputs">
+                <div class="input-field-group">
+                  <label for="field-goal" class="field-label" data-i18n="labelGoal">Campaign Goal *</label>
+                  <select id="field-goal" name="goal" class="field-select" required>
+                    <option value="Awareness">Awareness</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Launch">Product Launch</option>
+                    <option value="Event attendance">Event attendance</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="input-field-group">
+                  <label for="field-start-date" class="field-label" data-i18n="labelStartDate">Preferred Start Date *</label>
+                  <input type="date" id="field-start-date" name="startDate" class="field-input" required>
+                  <span class="inline-field-error" id="err-start-date" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="input-field-group">
+                <label for="field-audience" class="field-label" data-i18n="labelAudience">Target Audience (Short description) *</label>
+                <input type="text" id="field-audience" name="audience" class="field-input" placeholder="e.g. Young adults & sports enthusiasts in East Africa" required>
+                <span class="inline-field-error" id="err-audience" aria-live="polite"></span>
+              </div>
             </div>
 
-            <!-- Step 4: Business Description -->
-            <div class="form-step" data-step="4">
-              <label for="step-desc" class="step-label" data-i18n="labelStep4">What does your business do?</label>
-              <textarea 
-                id="step-desc" 
-                name="description" 
-                class="form-textarea" 
-                rows="4"
-                placeholder="Tell Sedo briefly about your product, service, or campaign vision (minimum 10 characters)..."
-                data-i18n-placeholder="placeholderStep4"
-                required
-                minlength="10"
-              ></textarea>
-              <span class="field-error" id="error-step4" aria-live="polite"></span>
+            <!-- STEP 4: THE DETAILS -->
+            <div class="form-step-pane" data-step="4">
+              <p class="step-intro-note" data-i18n="step4Intro">Share the vision and scope of this campaign.</p>
+
+              <div class="input-field-group">
+                <label for="field-desc" class="field-label" data-i18n="labelDesc">Campaign or Business Description (Min 30 characters) *</label>
+                <textarea id="field-desc" name="description" class="field-textarea" rows="5" placeholder="Detail your product, target deliverables, or campaign concept..." required minlength="30"></textarea>
+                <div class="char-count-row">
+                  <span class="inline-field-error" id="err-desc" aria-live="polite"></span>
+                  <span id="desc-char-count" class="char-count-pill">0 / 30 min</span>
+                </div>
+              </div>
+
+              <div class="input-field-group">
+                <label for="field-source" class="field-label" data-i18n="labelSource">How did you find Sedo? *</label>
+                <select id="field-source" name="source" class="field-select" required>
+                  <option value="TikTok">TikTok</option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="Referral">Referral</option>
+                  <option value="Event">Event</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
             </div>
 
-            <!-- Navigation Controls -->
-            <div class="form-actions">
-              <button type="button" id="form-prev-btn" class="btn btn-outline" style="display: none;" data-i18n="btnBack">
+            <!-- STEP 5: REVIEW -->
+            <div class="form-step-pane" data-step="5">
+              <p class="step-intro-note" data-i18n="step5Intro">Review your request details before sending.</p>
+
+              <div class="review-summary-card" id="review-card">
+                
+                <div class="review-section">
+                  <div class="review-sec-header">
+                    <span class="review-sec-title" data-i18n="reviewSec1">Contact</span>
+                    <button type="button" class="review-edit-btn" data-goto="1" data-i18n="btnEdit">Edit</button>
+                  </div>
+                  <p class="review-line" id="rev-contact-line">—</p>
+                </div>
+
+                <div class="review-section">
+                  <div class="review-sec-header">
+                    <span class="review-sec-title" data-i18n="reviewSec2">Brand & Business</span>
+                    <button type="button" class="review-edit-btn" data-goto="2" data-i18n="btnEdit">Edit</button>
+                  </div>
+                  <p class="review-line" id="rev-business-line">—</p>
+                </div>
+
+                <div class="review-section">
+                  <div class="review-sec-header">
+                    <span class="review-sec-title" data-i18n="reviewSec3">Collaboration</span>
+                    <button type="button" class="review-edit-btn" data-goto="3" data-i18n="btnEdit">Edit</button>
+                  </div>
+                  <p class="review-line" id="rev-collab-line">—</p>
+                </div>
+
+                <div class="review-section">
+                  <div class="review-sec-header">
+                    <span class="review-sec-title" data-i18n="reviewSec4">Details & Notes</span>
+                    <button type="button" class="review-edit-btn" data-goto="4" data-i18n="btnEdit">Edit</button>
+                  </div>
+                  <p class="review-line" id="rev-desc-line">—</p>
+                </div>
+
+              </div>
+
+              <div class="consent-row">
+                <label class="consent-label">
+                  <input type="checkbox" id="field-consent" required>
+                  <span data-i18n="consentText">I agree to be contacted about this request</span>
+                </label>
+                <span class="inline-field-error" id="err-consent" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <!-- STEP 6: SEND (Dispatch) -->
+            <div class="form-step-pane" data-step="6">
+              <div class="send-confirmation-block">
+                <span class="send-ready-icon">⚡</span>
+                <h3 class="send-ready-title" data-i18n="sendReadyTitle">Ready to Connect on Telegram</h3>
+                <p class="send-ready-desc" data-i18n="sendReadyDesc">
+                  Clicking the button below will format your proposal, copy it to your clipboard, and prepare a direct dispatch to Sedo's official manager (@Donkahan03).
+                </p>
+              </div>
+            </div>
+
+            <!-- Navigation Actions -->
+            <div class="form-nav-bar">
+              <button type="button" id="btn-form-back" class="btn btn-outline-bone" style="display: none;" data-i18n="btnBack">
                 Back
               </button>
-              <button type="button" id="form-next-btn" class="btn btn-primary" data-i18n="btnNext">
+              <button type="button" id="btn-form-next" class="btn btn-solid-white magnetic-btn" data-i18n="btnNext">
                 Next
               </button>
-              <button type="submit" id="form-submit-btn" class="btn btn-primary" style="display: none;" data-i18n="btnSendRequest">
-                <span class="btn-text" data-i18n="btnSendRequest">Send request</span>
-                <span class="btn-spinner" aria-hidden="true"></span>
+              <button type="submit" id="btn-form-submit" class="btn btn-solid-white magnetic-btn" style="display: none;" data-i18n="btnSendRequest">
+                <span class="btn-text-label" data-i18n="btnSendRequest">Send request</span>
+                <span class="btn-spinner-icon" aria-hidden="true"></span>
               </button>
             </div>
 
           </form>
+
         </div>
+
       </div>
     </section>
 
-    <!-- 8. VIDEO SECTION ("Watch the latest") -->
-    <section id="videos" class="video-section" aria-labelledby="video-title">
-      <div class="section-container">
-        <div class="video-layout">
-          
-          <!-- 9:16 Phone Frame Container -->
-          <div class="phone-frame-container reveal-item">
-            <div class="phone-bezel">
-              <a 
-                href="https://www.tiktok.com/@sedomartialart3" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="video-card-link"
-                aria-label="Watch Sedo Martial Art Highlight Video on TikTok"
-              >
-                <!-- Video Element (preload="none", src assigned via JS IntersectionObserver) -->
-                <video 
-                  id="sedo-highlight-video" 
-                  class="phone-video" 
-                  preload="none" 
-                  muted 
-                  loop 
-                  playsinline
-                  data-src="assets/video/sedo-highlight.mp4"
-                ></video>
-
-                <!-- Overlay Top -->
-                <div class="video-overlay-top">
-                  <span class="overlay-brand" data-i18n="videoOverlayTop">Sedo Martial Art</span>
-                </div>
-
-                <!-- Overlay Bottom -->
-                <div class="video-overlay-bottom">
-                  <span class="overlay-tagline" data-i18n="videoOverlayBottom">I fight for Ethiopia!</span>
-                  <div class="watch-tiktok-pill">
-                    <svg class="tiktok-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.85.12V9.4a6.33 6.33 0 0 0-.85-.06A6.34 6.34 0 0 0 3.14 15.7a6.34 6.34 0 0 0 6.34 6.34c3.5 0 6.34-2.84 6.34-6.34V8.4a8.28 8.28 0 0 0 4.77 1.5V6.45a4.83 4.83 0 0 1-1-.24z"/>
-                    </svg>
-                    <span data-i18n="btnWatchTikTok">Watch on TikTok</span>
-                  </div>
-                </div>
-              </a>
-
-              <!-- Sound Toggle Button -->
-              <button 
-                type="button" 
-                id="video-sound-toggle" 
-                class="video-sound-btn" 
-                aria-label="Toggle video sound"
-                title="Toggle sound"
-              >
-                <svg id="icon-sound-muted" class="sound-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M11 5L6 9H2v6h4l5 4V5z"/>
-                  <line x1="23" y1="9" x2="17" y2="15"/>
-                  <line x1="17" y1="9" x2="23" y2="15"/>
-                </svg>
-                <svg id="icon-sound-on" class="sound-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
-                  <path d="M11 5L6 9H2v6h4l5 4V5z"/>
-                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.08"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Beside Video on Desktop: Text & CTA -->
-          <div class="video-sidebar reveal-item">
-            <h2 id="video-title" class="section-heading" data-i18n="videoSidebarHeading">Watch the latest</h2>
-            <p class="video-sidebar-text" data-i18n="videoSidebarText">
-              Experience explosive training sessions, martial arts masterclasses, and fight preparations followed daily by over 2.4 million fans across the globe.
-            </p>
-            <div class="video-actions">
-              <a href="https://www.tiktok.com/@sedomartialart3" target="_blank" rel="noopener noreferrer" class="btn btn-tiktok" data-i18n="btnFollowTikTok">
-                Follow on TikTok @sedomartialart3
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
   </main>
 
   <!-- 9. FOOTER -->
   <footer class="site-footer">
     <div class="footer-container">
+      
       <div class="footer-left">
         <span class="footer-copy">© Sedo Martial Art</span>
-        <span class="footer-sep" aria-hidden="true">•</span>
-        <a href="https://www.tiktok.com/@sedomartialart3" target="_blank" rel="noopener noreferrer" class="footer-link">
+        <span class="footer-dot-sep" aria-hidden="true">•</span>
+        <a href="https://www.tiktok.com/@sedomartialart3" target="_blank" rel="noopener noreferrer" class="footer-tiktok-link">
           TikTok @sedomartialart3
         </a>
       </div>
 
-      <!-- Builder Credit -->
       <div class="footer-right">
-        <span class="builder-label" data-i18n="footerWebsiteBy">Website by</span>
-        <!-- Replace YOUR-IMAKO-SITE-URL with the actual site URL -->
-        <a href="https://YOUR-IMAKO-SITE-URL" target="_blank" rel="noopener" class="builder-credit-link">
+        <span class="builder-by-label" data-i18n="websiteBy">Website by</span>
+        <!-- Replace YOUR-IMAKO-SITE-URL with the live site URL for Imako Solution -->
+        <a href="https://YOUR-IMAKO-SITE-URL" target="_blank" rel="noopener" class="builder-credit-anchor">
           <img 
             src="assets/logo/imako-logo.png" 
             alt="Imako Solution" 
             height="28" 
-            class="builder-logo"
-            onerror="this.style.display='none'; document.getElementById('imako-fallback-text').style.display='inline';"
+            class="builder-logo-img"
+            onerror="this.style.display='none'; document.getElementById('imako-txt-fallback').style.display='inline';"
           >
-          <span id="imako-fallback-text" class="builder-fallback-text" style="display: none;">Imako Solution</span>
+          <span id="imako-txt-fallback" class="builder-text-fallback" style="display: none;">Imako Solution</span>
         </a>
       </div>
+
     </div>
   </footer>
 
-  <!-- LIGHTBOX MODAL FOR PHOTOS -->
-  <div id="gallery-lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Photo Lightbox">
-    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">&times;</button>
-    <button type="button" class="lightbox-prev" id="lightbox-prev" aria-label="Previous photo">&#8249;</button>
-    <button type="button" class="lightbox-next" id="lightbox-next" aria-label="Next photo">&#8250;</button>
-    <div class="lightbox-content">
-      <img src="" alt="" id="lightbox-image" class="lightbox-image">
+  <!-- LIGHTBOX MODAL FOR PHOTOS (Keyboard & Swipe accessible) -->
+  <div id="gallery-lightbox" class="lightbox-dialog" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Photo Lightbox">
+    <button type="button" class="lightbox-btn-close" id="lb-close" aria-label="Close Lightbox">&times;</button>
+    <button type="button" class="lightbox-btn-nav lb-prev" id="lb-prev" aria-label="Previous Photo">&#8249;</button>
+    <button type="button" class="lightbox-btn-nav lb-next" id="lb-next" aria-label="Next Photo">&#8250;</button>
+    <div class="lightbox-img-holder">
+      <img src="" alt="" id="lb-image" class="lightbox-target-img">
     </div>
   </div>
 
-  <!-- TELEGRAM MODAL -->
-  <div id="collab-modal" class="collab-modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
-    <div class="collab-modal-dialog">
-      <h3 id="modal-title" class="modal-title" data-i18n="modalTitle">Request Prepared</h3>
-      <p id="modal-copy-status" class="modal-copy-badge" data-i18n="modalCopiedBadge">Copied to your clipboard.</p>
-      <p class="modal-instructions" data-i18n="modalInstructions">
-        Your request is ready to send to Sedo on Telegram. Choose @Donkahan03 in the chat list and press Send. If the message did not open, paste it from your clipboard into a chat with @Donkahan03.
+  <!-- TELEGRAM READY MODAL -->
+  <div id="telegram-ready-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="tg-modal-heading">
+    <div class="modal-dialog-card">
+      <h3 id="tg-modal-heading" class="modal-heading" data-i18n="modalTitle">Your request is ready</h3>
+      
+      <div id="tg-copy-badge" class="copy-success-badge" data-i18n="copiedBadge">
+        Copied to your clipboard
+      </div>
+
+      <p class="modal-instruction-text" data-i18n="modalInstructions">
+        Choose @Donkahan03 in Telegram and press Send. If the message did not open, paste it from your clipboard into a chat with @Donkahan03.
       </p>
-      <div class="modal-actions">
+
+      <div class="modal-action-row">
         <a 
           href="https://t.me/Donkahan03" 
           target="_blank" 
           rel="noopener noreferrer" 
-          id="modal-telegram-link" 
-          class="btn btn-primary"
+          class="btn btn-solid-white"
           data-i18n="btnOpenTelegram"
         >
           Open @Donkahan03 on Telegram
         </a>
-        <button type="button" id="modal-close-btn" class="btn btn-outline" data-i18n="btnClose">
+        <button type="button" id="tg-modal-close" class="btn btn-outline-bone" data-i18n="btnClose">
           Close
         </button>
       </div>
